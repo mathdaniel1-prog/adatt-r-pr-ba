@@ -32,6 +32,15 @@
 
       .printing-image-frame {
         position: relative;
+        background: #000000;
+      }
+
+      .printing-image-frame.is-image-missing {
+        aspect-ratio: 16 / 9;
+      }
+
+      .printing-image-frame.is-image-missing .printing-image {
+        display: none;
       }
 
       .printing-intro-card-grid {
@@ -738,25 +747,48 @@
         .printing-intro-card-grid {
           grid-template-columns: 1fr;
           gap: 16px;
-          width: calc(100% - 8px);
+          width: calc(100% - 16px);
           margin-top: 18px;
         }
 
         .printing-intro-card {
           min-height: 0;
-          padding-left: 4px;
-          padding-right: 4px;
+          padding-left: 8px;
+          padding-right: 8px;
           padding-top: 16px;
           padding-bottom: 0;
+          background: #ffffff;
+        }
+
+        .printing-intro-card-copy {
+          display: grid;
+          gap: 8px;
+        }
+
+        .printing-intro-card-copy h2 {
+          margin: 0 0 8px;
+        }
+
+        .printing-intro-text-card {
+          margin: 0;
+          padding: 18px;
+          background: var(--printing-surface);
+          border: 1px solid #e6e6e6;
+          border-radius: 14px;
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+          box-sizing: border-box;
+          font-size: 11px;
+          line-height: 1.5;
+          overflow-wrap: anywhere;
         }
 
         .printing-intro-card--feature-group {
           grid-template-columns: 1fr;
           gap: 18px;
           min-height: 0;
-          width: calc(100% - 8px);
-          margin-left: 4px;
-          margin-right: 4px;
+          width: calc(100% - 16px);
+          margin-left: 8px;
+          margin-right: 8px;
         }
 
         .printing-intro-small-card-image {
@@ -794,6 +826,67 @@
         }
 
         .printing-feature-card-wide.printing-feature-card-wide-rounded .printing-feature-card-inner {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        .printing-feature-card.printing-feature-card-wide-rounded {
+          height: auto;
+          min-height: 0;
+          overflow: visible;
+          background: transparent;
+          border-radius: 0;
+        }
+
+        .printing-feature-card-main-copy {
+          padding: 18px;
+          background: #ffffff;
+          border: 1px solid #e6e6e6;
+          border-radius: 14px;
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+          box-sizing: border-box;
+        }
+
+        .printing-feature-card-main-copy .printing-feature-card-title,
+        .printing-feature-card-main-copy .printing-feature-card-text {
+          margin-left: 0;
+          color: #000000;
+        }
+
+        .printing-feature-card-main-copy .printing-feature-card-title {
+          margin-top: 0;
+          margin-bottom: 8px;
+          font-size: 18px;
+          line-height: 1.15;
+        }
+
+        .printing-feature-card-main-copy .printing-feature-card-text {
+          margin: 0;
+          font-size: 11px;
+          line-height: 1.5;
+          overflow-wrap: anywhere;
+        }
+
+        .printing-feature-card-wide-rounded .printing-feature-card-mini-list {
+          grid-template-rows: none;
+          grid-auto-rows: auto;
+          gap: 8px;
+          width: 100%;
+          margin-top: 0;
+        }
+
+        .printing-feature-card-wide.printing-feature-card-wide-rounded .printing-feature-card-inner {
+          height: auto;
+          min-height: 0;
+        }
+
+        .printing-feature-card-wide-rounded .printing-feature-card-mini {
+          top: 0;
+          left: 0;
           width: 100%;
         }
 
@@ -844,9 +937,9 @@
         <article class="printing-intro-card">
           <div class="printing-intro-card-copy">
             <h2>Egyedi és kisszériás 3D nyomtatás</h2>
-            <p>Egyedi ötlet, praktikus alkatrész vagy egy különleges tárgy a 3D nyomtatás segítségével kézzelfoghatóvá válhat. Az ötlettől a kész tárgyig vállaljuk a tervezést, a modellezést és a precíz 3D nyomtatást, hogy az elképzelésedből valóban működő, használható tárgy szülessen.</p>
-            <p>A tárgyakat 3D nyomtatásra optimalizáljuk, hogy a legszebb felületi minőséget érhessük el, és úgy nyomtatjuk, hogy a tárgy a legjobban ellenálljon a terheléseknek.</p>
-            <p>Az akár 4 színben történő nyomtatás lehetőséget ad látványos és összetettebb tárgyak megvalósítására, legyen szó prototípusról, kisebb szériáról vagy egyedi tárgyról.</p>
+            <p class="printing-intro-text-card">Egyedi ötlet, praktikus alkatrész vagy egy különleges tárgy a 3D nyomtatás segítségével kézzelfoghatóvá válhat. Az ötlettől a kész tárgyig vállaljuk a tervezést, a modellezést és a precíz 3D nyomtatást, hogy az elképzelésedből valóban működő, használható tárgy szülessen.</p>
+            <p class="printing-intro-text-card">A tárgyakat 3D nyomtatásra optimalizáljuk, hogy a legszebb felületi minőséget érhessük el, és úgy nyomtatjuk, hogy a tárgy a legjobban ellenálljon a terheléseknek.</p>
+            <p class="printing-intro-text-card">Az akár 4 színben történő nyomtatás lehetőséget ad látványos és összetettebb tárgyak megvalósítására, legyen szó prototípusról, kisebb szériáról vagy egyedi tárgyról.</p>
           </div>
         </article>
         <div class="printing-intro-card--feature-group" aria-label="3D nyomtatási szolgáltatások">
@@ -905,8 +998,10 @@
             </article>
             <article class="printing-feature-card printing-feature-card-wide printing-feature-card-wide-rounded printing-feature-card-wide-rounded--inverted printing-feature-card-wide-rounded--scroll-reveal">
               <div class="printing-feature-card-inner">
-                <h3 class="printing-feature-card-title">Alkatrész 3D nyomtatás</h3>
-                <p class="printing-feature-card-text">Alkatrészek 3D modellezése és nyomtatása. Törött vagy hiányzó alkatrészek újramodellezése, meglévő STL fájlok módosítása és optimalizálása, valamint egyedi, szükséges alkatrészek tervezése és elkészítése 3D nyomtatással.</p>
+                <div class="printing-feature-card-main-copy">
+                  <h3 class="printing-feature-card-title">Alkatrész 3D nyomtatás</h3>
+                  <p class="printing-feature-card-text">Alkatrészek 3D modellezése és nyomtatása. Törött vagy hiányzó alkatrészek újramodellezése, meglévő STL fájlok módosítása és optimalizálása, valamint egyedi, szükséges alkatrészek tervezése és elkészítése 3D nyomtatással.</p>
+                </div>
                 <div class="printing-feature-card-mini-list" aria-label="További kártyák">
                   <div class="printing-feature-card-mini">
                     <img class="printing-feature-card-mini-image" src="portfolio/nyportfolio/teszt1.jpg" alt="Törött alkatrész újramodellezése" />
@@ -928,8 +1023,10 @@
             </article>
             <article class="printing-feature-card printing-feature-card-wide printing-feature-card-wide-rounded printing-feature-card-wide-rounded--product printing-feature-card-wide-rounded--scroll-reveal">
               <div class="printing-feature-card-inner">
-                <h3 class="printing-feature-card-title">Merch és dekoráció</h3>
-                <p class="printing-feature-card-text">Egyedi tárgyak és kiegészítők tervezése, amelyek tökéletesen illeszkednek egy cég arculatához és profiljához. Egyedi merch termékek, ajándéktárgyak, valamint dekorációs és funkcionális kellékek – kulcstartók, játékok, asztaldíszek vagy egyéb figyelemfelkeltő tárgyak.</p>
+                <div class="printing-feature-card-main-copy">
+                  <h3 class="printing-feature-card-title">Merch és dekoráció</h3>
+                  <p class="printing-feature-card-text">Egyedi tárgyak és kiegészítők tervezése, amelyek tökéletesen illeszkednek egy cég arculatához és profiljához. Egyedi merch termékek, ajándéktárgyak, valamint dekorációs és funkcionális kellékek – kulcstartók, játékok, asztaldíszek vagy egyéb figyelemfelkeltő tárgyak.</p>
+                </div>
                 <div class="printing-feature-card-mini-list" aria-label="További kártyák">
                   <div class="printing-feature-card-mini">
                     <img class="printing-feature-card-mini-image" src="portfolio/nyportfolio/sutibeka.jpg" alt="Sutibeka 3D nyomtatott modell" />
@@ -952,8 +1049,10 @@
             </article>
             <article class="printing-feature-card printing-feature-card-wide printing-feature-card-wide-rounded printing-feature-card-wide-rounded--inverted printing-feature-card-wide-rounded--flexi printing-feature-card-wide-rounded--scroll-reveal">
               <div class="printing-feature-card-inner">
-                <h3 class="printing-feature-card-title">Flexi tervezés</h3>
-                <p class="printing-feature-card-text">A 3D nyomtatás sajátja, hogy mozgó, egymásba fonódó elemeket képest létrehozni. Ezzel a technikával összeszerelés nélkül alkothatunk komplex mozgatható tárgyakat. Egészen laza és egészen szoros öntartó csomópontok is létrehozhatók.<br />Készítsünk együtt olyan egyedi flexi tárgyakat amilyen még senki másnak nincs!</p>
+                <div class="printing-feature-card-main-copy">
+                  <h3 class="printing-feature-card-title">Flexi tervezés</h3>
+                  <p class="printing-feature-card-text">A 3D nyomtatás sajátja, hogy mozgó, egymásba fonódó elemeket képest létrehozni. Ezzel a technikával összeszerelés nélkül alkothatunk komplex mozgatható tárgyakat. Egészen laza és egészen szoros öntartó csomópontok is létrehozhatók.<br />Készítsünk együtt olyan egyedi flexi tárgyakat amilyen még senki másnak nincs!</p>
+                </div>
                 <div class="printing-feature-card-mini-list" aria-label="További kártyák">
                   <div class="printing-feature-card-mini">
                     <img class="printing-feature-card-mini-image" src="portfolio/nyportfolio/flexi1.jpg" alt="Egyedi flexi tárgy" />
@@ -1094,6 +1193,16 @@
     </script>
 
     <script>
+      (function () {
+        var image = document.querySelector('.printing-image');
+        var frame = document.querySelector('.printing-image-frame');
+        if (!image || !frame) return;
+
+        image.addEventListener('error', function () {
+          frame.classList.add('is-image-missing');
+        });
+      })();
+
       (function () {
         var header = document.querySelector('.site-header');
         if (!header) return;
