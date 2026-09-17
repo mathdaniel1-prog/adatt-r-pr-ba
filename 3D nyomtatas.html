@@ -735,6 +735,24 @@
           padding: 0;
         }
 
+        .printing-intro-card-grid {
+          grid-template-columns: 1fr;
+          width: calc(100% - 48px);
+        }
+
+        .printing-intro-card--feature-group {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .printing-feature-card-wide-rounded .printing-feature-card-image-placeholder,
+        .printing-feature-card-wide-rounded .printing-feature-card-side-image {
+          display: none;
+        }
+
+        .printing-feature-card-wide.printing-feature-card-wide-rounded .printing-feature-card-inner {
+          width: 100%;
+        }
+
         .printing-feature-grid {
           grid-template-columns: 1fr;
           width: 100%;
