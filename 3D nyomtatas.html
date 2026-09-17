@@ -316,7 +316,7 @@
         width: 250px;
         height: 360px;
         max-width: 100%;
-        background: var(--printing-surface);
+        background: #ffffff;
         border: none;
         border-radius: 18px;
         overflow: hidden;
@@ -355,7 +355,7 @@
       }
 
       .printing-feature-card.printing-feature-card-wide-rounded--inverted {
-        background: var(--printing-surface);
+        background: #ffffff;
       }
 
       .printing-feature-card-wide-rounded--inverted .printing-feature-card-title,
@@ -378,6 +378,10 @@
         object-fit: cover;
       }
 
+      .printing-feature-card-wide-rounded--no-side-image .printing-feature-card-image-placeholder {
+        display: block;
+      }
+
       .printing-feature-card-wide-rounded .printing-feature-card-inner {
         padding: 18px;
       }
@@ -388,7 +392,7 @@
         max-width: 1120px;
         height: 420px;
         margin: 47px auto 0;
-        background: var(--printing-surface);
+        background: #ffffff;
         border: none;
         border-radius: 0;
         overflow: hidden;
@@ -403,6 +407,20 @@
         padding: 18px;
         max-width: none;
         box-sizing: border-box;
+      }
+
+      .printing-feature-card-main-copy {
+        display: block;
+        width: 100%;
+      }
+
+      .printing-feature-card-main-copy .printing-feature-card-title {
+        margin-left: 18px;
+        margin-top: 18px;
+      }
+
+      .printing-feature-card-main-copy .printing-feature-card-text {
+        margin-left: 18px;
       }
 
       .printing-feature-card-wide-rounded .printing-feature-card-inner > .printing-feature-card-title {
@@ -456,7 +474,7 @@
       }
 
       .printing-feature-card-wide-rounded--inverted .printing-feature-card-mini {
-        background: var(--printing-surface);
+        background: #ffffff;
         border-color: #e6e6e6;
         box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
       }
@@ -615,6 +633,12 @@
         top: 36px;
         left: 36px;
         width: 25%;
+      }
+
+      .printing-feature-card-mini-image-placeholders {
+        display: none;
+      }
+      .printing-feature-card-image-caption {
         box-sizing: border-box;
         z-index: 1;
         display: flex;
@@ -888,6 +912,59 @@
           top: 0;
           left: 0;
           width: 100%;
+          align-items: flex-start;
+          padding: 18px;
+          box-sizing: border-box;
+        }
+
+        .printing-feature-card-wide-rounded .printing-feature-card-mini-image {
+          display: none;
+        }
+
+        .printing-feature-card-wide-rounded .printing-feature-card-mini-copy {
+          width: 100%;
+          flex: none;
+          align-self: flex-start;
+          text-align: left;
+        }
+
+        .printing-feature-card-mini--model-modification {
+          flex-direction: column;
+        }
+
+        .printing-feature-card-mini-image-placeholders {
+          grid-column: 1 / -1;
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 8px;
+          width: 100%;
+          margin-top: 8px;
+        }
+
+        .printing-feature-card-mini-image-placeholders span {
+          display: block;
+          position: relative;
+          width: 100%;
+          aspect-ratio: 1;
+          background: #d8d8d8;
+          border: 1px solid #e6e6e6;
+          box-sizing: border-box;
+          overflow: hidden;
+        }
+
+        .printing-feature-card-mini-image-placeholders span img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .printing-feature-card-wide-rounded .printing-feature-card-mini:nth-child(2) {
+          min-height: 88px;
+        }
+
+        .printing-about .home-about-content > .printing-feature-card-wide {
+          margin-top: 32px;
         }
 
         .printing-feature-grid {
@@ -996,7 +1073,7 @@
             <article class="printing-services-title-card">
               <h2 class="printing-services-title">Szolgáltatások</h2>
             </article>
-            <article class="printing-feature-card printing-feature-card-wide printing-feature-card-wide-rounded printing-feature-card-wide-rounded--inverted printing-feature-card-wide-rounded--scroll-reveal">
+            <article class="printing-feature-card printing-feature-card-wide printing-feature-card-wide-rounded printing-feature-card-wide-rounded--inverted printing-feature-card-wide-rounded--no-side-image printing-feature-card-wide-rounded--scroll-reveal">
               <div class="printing-feature-card-inner">
                 <div class="printing-feature-card-main-copy">
                   <h3 class="printing-feature-card-title">Alkatrész 3D nyomtatás</h3>
@@ -1010,12 +1087,17 @@
                       <p class="printing-feature-card-text">Meglévő, sérült vagy törött alkatrészek pontos újra modellezésé, szükség esetén a szerkezet megerősítésével és tovább fejlesztésével.</p>
                     </div>
                   </div>
-                  <div class="printing-feature-card-mini">
+                  <div class="printing-feature-card-mini printing-feature-card-mini--model-modification">
                     <img class="printing-feature-card-mini-image" src="portfolio/nyportfolio/teszt2.jpg" alt="3D modellek módosítása és nyomtatása" />
                     <div class="printing-feature-card-mini-copy">
                       <h3 class="printing-feature-card-title">3D modellek módosítása és nyomtatása</h3>
                       <p class="printing-feature-card-text">Speciális alkatrészek elkészítése létező fájlok alapján, STL fájlok átalakítása és 3D nyomtatása.</p>
                     </div>
+                  </div>
+                  <div class="printing-feature-card-mini-image-placeholders" aria-label="Három képhely">
+                    <span><img src="portfolio/nyportfolio/NY2.jpg" alt="NY2 3D nyomtatott modell" /></span>
+                    <span><img src="portfolio/nyportfolio/teszt1.jpg" alt="Törött alkatrész újramodellezése" /></span>
+                    <span><img src="portfolio/nyportfolio/teszt2.jpg" alt="3D modellek módosítása és nyomtatása" /></span>
                   </div>
                 </div>
               </div>
@@ -1041,6 +1123,11 @@
                       <h3 class="printing-feature-card-title">Dekorációs tárgyak és kreatív kellékek</h3>
                       <p class="printing-feature-card-text">Egyedileg tervezett és lógózott dekorációk és hasznos kellékek tervezése és nyomtatása.</p>
                     </div>
+                  </div>
+                  <div class="printing-feature-card-mini-image-placeholders" aria-label="Három képhely">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                   </div>
                 </div>
               </div>
@@ -1068,6 +1155,11 @@
                       <p class="printing-feature-card-text">Saját flexi termékpaletta készítése otthoni nyomtatáshoz vagy a fájlok értékesítéséhez</p>
                     </div>
                   </div>
+                  <div class="printing-feature-card-mini-image-placeholders" aria-label="Három képhely">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
                 </div>
               </div>
               <img class="printing-feature-card-image-placeholder" src="portfolio/nyportfolio/laputa1.jpg" alt="Laputa1 3D nyomtatott modell" />
@@ -1076,6 +1168,11 @@
               <div class="printing-feature-card-inner">
                 <h3 class="printing-feature-card-title">Egyedi kérés</h3>
                 <p class="printing-feature-card-text">Bármilyen más ötlet, ami a felsoroltak között nem szerepel. Például rajongói tárgyak, társasjáték kiegészítők, játékok, otthoni díszek.</p>
+              </div>
+              <div class="printing-feature-card-mini-image-placeholders" aria-label="Három képhely">
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
               <img class="printing-feature-card-side-image printing-feature-card-side-image--ny12-copy" src="portfolio/nyportfolio/ny12.jpg" alt="NY12 3D nyomtatott modell" />
               <img class="printing-feature-card-side-image printing-feature-card-side-image--middle-placeholder" src="portfolio/nyportfolio/nyf.avif" alt="NYF 3D nyomtatott modell" />
