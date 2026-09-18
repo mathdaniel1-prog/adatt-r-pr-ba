@@ -611,6 +611,11 @@
       .printing-feature-card-inner--image-only {
         padding: 0;
         position: relative;
+        background: #d8d8d8;
+      }
+
+      .printing-feature-card-inner--image-only.is-image-missing .printing-feature-card-image {
+        display: none;
       }
 
       .printing-feature-card-wide .printing-feature-card-image {
@@ -1025,6 +1030,10 @@
           object-position: center;
         }
 
+        .printing-feature-card--work .printing-feature-card-inner--image-only {
+          aspect-ratio: 8 / 3;
+        }
+
       }
 
       body.is-browser-zoomed .printing-image-section {
@@ -1219,6 +1228,10 @@
         aspect-ratio: 8 / 3;
         object-fit: cover;
         object-position: center;
+      }
+
+      body.is-browser-zoomed .printing-feature-card--work .printing-feature-card-inner--image-only {
+        aspect-ratio: 8 / 3;
       }
     </style>
   </head>
@@ -1557,6 +1570,17 @@
 
         image.addEventListener('error', function () {
           frame.classList.add('is-image-missing');
+        });
+      })();
+
+      (function () {
+        var workImages = document.querySelectorAll('.printing-feature-card--work .printing-feature-card-image');
+
+        workImages.forEach(function (image) {
+          image.addEventListener('error', function () {
+            var container = image.closest('.printing-feature-card-inner--image-only');
+            if (container) container.classList.add('is-image-missing');
+          });
         });
       })();
 
