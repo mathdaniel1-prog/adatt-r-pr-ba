@@ -534,6 +534,13 @@ button { cursor: pointer; }
 }
 
 @media (max-width: 800px) {
+  .container,
+  .home-divider-band .container,
+  .home-portfolio-strip .container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
   .home-portfolio-strip .p3-grid {
     grid-template-columns: 1fr;
     width: 100%;
