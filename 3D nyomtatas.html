@@ -982,10 +982,11 @@
         }
 
         .printing-feature-card--work {
-          width: 100vw;
+          width: calc(100% - 16px);
           height: auto;
           min-height: 0;
-          margin-left: calc(50% - 50vw);
+          margin-left: 8px;
+          margin-right: 8px;
           overflow: visible;
           background: transparent;
           border-radius: 0;
@@ -999,9 +1000,9 @@
         .printing-feature-card--work .printing-feature-card-image-caption {
           position: static;
           order: -1;
-          width: calc(100% - 16px);
+          width: 100%;
           min-height: 0;
-          margin: 0 8px 16px;
+          margin: 0 0 16px;
           padding: 18px;
           background: #ffffff;
           border-radius: 18px;
@@ -1177,10 +1178,11 @@
       }
 
       body.is-browser-zoomed .printing-feature-card--work {
-        width: 100vw;
+        width: calc(100% - 16px);
         height: auto;
         min-height: 0;
-        margin-left: calc(50% - 50vw);
+        margin-left: 8px;
+        margin-right: 8px;
         overflow: visible;
         background: transparent;
         border-radius: 0;
@@ -1194,9 +1196,9 @@
       body.is-browser-zoomed .printing-feature-card--work .printing-feature-card-image-caption {
         position: static;
         order: -1;
-        width: calc(100% - 16px);
+        width: 100%;
         min-height: 0;
-        margin: 0 8px 16px;
+        margin: 0 0 16px;
         padding: 18px;
         background: #ffffff;
         border-radius: 18px;
