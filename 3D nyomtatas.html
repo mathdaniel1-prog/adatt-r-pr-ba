@@ -794,10 +794,8 @@
         .printing-intro-text-card {
           margin: 0;
           padding: 18px;
-          background: var(--printing-surface);
-          border: 1px solid #e6e6e6;
-          border-radius: 14px;
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+          background: #ffffff;
+          border-radius: 18px;
           box-sizing: border-box;
           font-size: 11px;
           line-height: 1.5;
@@ -823,10 +821,8 @@
           justify-content: center;
           min-height: 0;
           padding: 18px;
-          background: var(--printing-surface);
-          border: 1px solid #e6e6e6;
-          border-radius: 14px;
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+          background: #ffffff;
+          border-radius: 18px;
         }
 
         .printing-intro-small-card h3 {
@@ -867,9 +863,7 @@
         .printing-feature-card-main-copy {
           padding: 18px;
           background: #ffffff;
-          border: 1px solid #e6e6e6;
-          border-radius: 14px;
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+          border-radius: 18px;
           box-sizing: border-box;
         }
 
@@ -912,6 +906,10 @@
           width: 100%;
           align-items: flex-start;
           padding: 18px;
+          background: #ffffff;
+          border: none;
+          border-radius: 18px;
+          box-shadow: none;
           box-sizing: border-box;
         }
 
@@ -977,6 +975,55 @@
           min-height: 320px;
         }
 
+        .printing-about .home-about-content > .printing-feature-card-wide.printing-feature-card-wide-rounded {
+          width: calc(100% - 16px);
+          margin-left: 8px;
+          margin-right: 8px;
+        }
+
+        .printing-feature-card--work {
+          width: 100vw;
+          height: auto;
+          min-height: 0;
+          margin-left: calc(50% - 50vw);
+          overflow: visible;
+          background: transparent;
+          border-radius: 0;
+        }
+
+        .printing-feature-card--work .printing-feature-card-inner {
+          height: auto;
+          padding: 0;
+        }
+
+        .printing-feature-card--work .printing-feature-card-image-caption {
+          position: static;
+          order: -1;
+          width: calc(100% - 16px);
+          min-height: 0;
+          margin: 0 8px 16px;
+          padding: 18px;
+          background: #ffffff;
+          border-radius: 18px;
+          pointer-events: auto;
+          text-shadow: none;
+          box-sizing: border-box;
+        }
+
+        .printing-feature-card--work .printing-feature-card-image-caption h3,
+        .printing-feature-card--work .printing-feature-card-image-caption p {
+          color: #000000;
+        }
+
+        .printing-feature-card--work .printing-feature-card-image {
+          display: block;
+          width: 100%;
+          height: auto;
+          aspect-ratio: 8 / 3;
+          object-fit: cover;
+          object-position: center;
+        }
+
       }
 
       body.is-browser-zoomed .printing-image-section {
@@ -1004,6 +1051,8 @@
       body.is-browser-zoomed .printing-intro-small-card {
         min-height: 0;
         padding: 18px;
+        background: #ffffff;
+        border-radius: 18px;
       }
 
       body.is-browser-zoomed .printing-intro-text-card {
@@ -1044,11 +1093,16 @@
         border-radius: 0;
       }
 
+      body.is-browser-zoomed .printing-about .home-about-content > .printing-feature-card-wide.printing-feature-card-wide-rounded {
+        width: calc(100% - 16px);
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+
       body.is-browser-zoomed .printing-feature-card-main-copy {
         padding: 18px;
         background: #ffffff;
-        border: 1px solid #e6e6e6;
-        border-radius: 14px;
+        border-radius: 18px;
         box-sizing: border-box;
       }
 
@@ -1087,6 +1141,10 @@
         min-height: 0;
         align-items: flex-start;
         padding: 18px;
+        background: #ffffff;
+        border: none;
+        border-radius: 18px;
+        box-shadow: none;
       }
 
       body.is-browser-zoomed .printing-feature-card-wide-rounded .printing-feature-card-mini-copy {
@@ -1136,14 +1194,12 @@
       body.is-browser-zoomed .printing-feature-card--work .printing-feature-card-image-caption {
         position: static;
         order: -1;
-        width: calc(100% - 32px);
+        width: calc(100% - 16px);
         min-height: 0;
-        margin: 0 16px 16px;
+        margin: 0 8px 16px;
         padding: 18px;
         background: #ffffff;
-        border: 1px solid #e6e6e6;
-        border-radius: 14px;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+        border-radius: 18px;
         pointer-events: auto;
         text-shadow: none;
         box-sizing: border-box;
