@@ -771,6 +771,24 @@
           padding: 0;
         }
 
+        .printing-image-frame {
+          aspect-ratio: 1 / 1;
+          overflow: hidden;
+        }
+
+        .printing-image-frame picture {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+
+        .printing-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: left center;
+        }
+
         .printing-intro-card-grid {
           grid-template-columns: 1fr;
           gap: 16px;
@@ -1252,7 +1270,10 @@
 
     <section class="printing-image-section" aria-label="3D nyomtatás minta kép">
       <div class="printing-image-frame">
-        <img src="images/kezdokep.webp" class="printing-image" alt="Kezdőkép" />
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/laputa1.webp" />
+          <img src="images/kezdokep.webp" class="printing-image" alt="Kezdőkép" />
+        </picture>
         <div class="printing-image-fade-overlay" aria-hidden="true"></div>
         <div class="printing-image-overlay">
           <h1 class="hero-title">
