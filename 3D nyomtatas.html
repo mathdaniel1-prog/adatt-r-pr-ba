@@ -890,6 +890,10 @@
           box-sizing: border-box;
         }
 
+        .printing-feature-card--warm .printing-feature-card-main-copy {
+          background: #E6E2DF;
+        }
+
         .printing-feature-card-main-copy .printing-feature-card-title,
         .printing-feature-card-main-copy .printing-feature-card-text {
           margin-left: 0;
@@ -945,6 +949,42 @@
           flex: none;
           align-self: flex-start;
           text-align: left;
+        }
+
+        .printing-feature-card-mini--mobile-toggle .printing-feature-card-mini-copy .printing-feature-card-text {
+          display: none;
+        }
+
+        .printing-feature-card-mini--mobile-toggle {
+          cursor: pointer;
+          height: 40px;
+          min-height: 40px;
+          padding-top: 0;
+          padding-bottom: 0;
+          overflow: hidden;
+        }
+
+        .printing-feature-card-mini--model-modification.printing-feature-card-mini--mobile-toggle {
+          flex-direction: row;
+        }
+
+        .printing-feature-card-mini--mobile-toggle .printing-feature-card-mini-copy {
+          align-self: center;
+        }
+
+        .printing-feature-card-mini--mobile-toggle .printing-feature-card-title {
+          position: relative;
+          top: 5px;
+        }
+
+        .printing-feature-card-mini--mobile-toggle.is-expanded {
+          height: auto;
+          min-height: 40px;
+          overflow: visible;
+        }
+
+        .printing-feature-card-mini--mobile-toggle.is-expanded .printing-feature-card-mini-copy .printing-feature-card-text {
+          display: block;
         }
 
         .printing-feature-card-mini--model-modification {
@@ -1134,6 +1174,10 @@
         box-sizing: border-box;
       }
 
+      body.is-browser-zoomed .printing-feature-card--warm .printing-feature-card-main-copy {
+        background: #E6E2DF;
+      }
+
       body.is-browser-zoomed .printing-feature-card-main-copy .printing-feature-card-title,
       body.is-browser-zoomed .printing-feature-card-main-copy .printing-feature-card-text {
         margin-left: 0;
@@ -1179,6 +1223,42 @@
         width: 100%;
         flex: none;
         text-align: left;
+      }
+
+      body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle .printing-feature-card-mini-copy .printing-feature-card-text {
+        display: none;
+      }
+
+      body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle {
+        cursor: pointer;
+        height: 40px;
+        min-height: 40px;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+      }
+
+      body.is-browser-zoomed .printing-feature-card-mini--model-modification.printing-feature-card-mini--mobile-toggle {
+        flex-direction: row;
+      }
+
+      body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle .printing-feature-card-mini-copy {
+        align-self: center;
+      }
+
+      body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle .printing-feature-card-title {
+        position: relative;
+        top: 5px;
+      }
+
+      body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle.is-expanded {
+        height: auto;
+        min-height: 40px;
+        overflow: visible;
+      }
+
+      body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle.is-expanded .printing-feature-card-mini-copy .printing-feature-card-text {
+        display: block;
       }
 
       body.is-browser-zoomed .printing-feature-card-mini-image-placeholders {
@@ -1346,21 +1426,21 @@
             <article class="printing-services-title-card">
               <h2 class="printing-services-title">Szolgáltatások</h2>
             </article>
-            <article class="printing-feature-card printing-feature-card-wide printing-feature-card-wide-rounded printing-feature-card-wide-rounded--inverted printing-feature-card-wide-rounded--no-side-image printing-feature-card-wide-rounded--scroll-reveal">
+            <article class="printing-feature-card printing-feature-card-wide printing-feature-card-wide-rounded printing-feature-card-wide-rounded--inverted printing-feature-card-wide-rounded--no-side-image printing-feature-card-wide-rounded--scroll-reveal printing-feature-card--warm">
               <div class="printing-feature-card-inner">
                 <div class="printing-feature-card-main-copy">
                   <h3 class="printing-feature-card-title">Precíz 3D tervezés - Alkatrész 3D nyomtatás</h3>
                   <p class="printing-feature-card-text">Alkatrészek 3D modellezése és nyomtatása. Törött vagy hiányzó alkatrészek újramodellezése, meglévő STL fájlok módosítása és optimalizálása, valamint egyedi, szükséges alkatrészek tervezése és elkészítése 3D nyomtatással.</p>
                 </div>
                 <div class="printing-feature-card-mini-list" aria-label="További kártyák">
-                  <div class="printing-feature-card-mini">
+                  <div class="printing-feature-card-mini printing-feature-card-mini--mobile-toggle" role="button" tabindex="0" aria-expanded="false">
                     <img class="printing-feature-card-mini-image" src="portfolio/nyportfolio/teszt1.jpg" alt="Törött alkatrész újramodellezése" />
                     <div class="printing-feature-card-mini-copy">
                       <h3 class="printing-feature-card-title">Alkatrész újra modellezésé</h3>
                       <p class="printing-feature-card-text">Meglévő, sérült vagy törött alkatrészek pontos újra modellezésé, szükség esetén a szerkezet megerősítésével és tovább fejlesztésével.</p>
                     </div>
                   </div>
-                  <div class="printing-feature-card-mini printing-feature-card-mini--model-modification">
+                  <div class="printing-feature-card-mini printing-feature-card-mini--model-modification printing-feature-card-mini--mobile-toggle" role="button" tabindex="0" aria-expanded="false">
                     <img class="printing-feature-card-mini-image" src="portfolio/nyportfolio/teszt2.jpg" alt="3D modellek módosítása és nyomtatása" />
                     <div class="printing-feature-card-mini-copy">
                       <h3 class="printing-feature-card-title">3D modellek módosítása és nyomtatása</h3>
@@ -1376,21 +1456,21 @@
               </div>
               <img class="printing-feature-card-image-placeholder" src="portfolio/nyportfolio/NY2.jpg" alt="NY2 3D nyomtatott modell" />
             </article>
-            <article class="printing-feature-card printing-feature-card-wide printing-feature-card-wide-rounded printing-feature-card-wide-rounded--inverted printing-feature-card-wide-rounded--flexi printing-feature-card-wide-rounded--scroll-reveal">
+            <article class="printing-feature-card printing-feature-card-wide printing-feature-card-wide-rounded printing-feature-card-wide-rounded--inverted printing-feature-card-wide-rounded--flexi printing-feature-card-wide-rounded--scroll-reveal printing-feature-card--warm">
               <div class="printing-feature-card-inner">
                 <div class="printing-feature-card-main-copy">
                   <h3 class="printing-feature-card-title">Flexi tervezés és nyomtatás</h3>
                   <p class="printing-feature-card-text">A 3D nyomtatás sajátja, hogy mozgó, egymásba fonódó elemeket képest létrehozni. Ezzel a technikával összeszerelés nélkül alkothatunk komplex mozgatható tárgyakat. Egészen laza és egészen szoros öntartó csomópontok is létrehozhatók.<br />Készítsünk együtt olyan egyedi flexi terméket amilyen még senki másnak nincs!</p>
                 </div>
                 <div class="printing-feature-card-mini-list" aria-label="További kártyák">
-                  <div class="printing-feature-card-mini">
+                  <div class="printing-feature-card-mini printing-feature-card-mini--mobile-toggle" role="button" tabindex="0" aria-expanded="false">
                     <img class="printing-feature-card-mini-image" src="portfolio/nyportfolio/flexi1.jpg" alt="Egyedi flexi tárgy" />
                     <div class="printing-feature-card-mini-copy">
                       <h3 class="printing-feature-card-title">Flexi nyomtatás</h3>
                       <p class="printing-feature-card-text">Flexi modell készítés és nyomtatás akár 4 szín használatával.</p>
                     </div>
                   </div>
-                  <div class="printing-feature-card-mini">
+                  <div class="printing-feature-card-mini printing-feature-card-mini--mobile-toggle" role="button" tabindex="0" aria-expanded="false">
                     <img class="printing-feature-card-mini-image" src="portfolio/nyportfolio/szelet.jpg" alt="Szeletelt modell 3D nyomtatáshoz" />
                     <div class="printing-feature-card-mini-copy">
                       <h3 class="printing-feature-card-title">Stl fájl készítése otthoni 3D nyomtatáshoz</h3>
@@ -1686,6 +1766,34 @@
 
         images.forEach(function (image) {
           observer.observe(image);
+        });
+      })();
+
+      (function () {
+        var cards = document.querySelectorAll('.printing-feature-card-mini--mobile-toggle');
+        if (!cards.length) return;
+
+        function isMobileLayout() {
+          return document.body.classList.contains('is-browser-zoomed') || window.matchMedia('(max-width: 900px)').matches;
+        }
+
+        function toggleCard(card) {
+          if (!isMobileLayout()) return;
+
+          var isExpanded = card.classList.toggle('is-expanded');
+          card.setAttribute('aria-expanded', String(isExpanded));
+        }
+
+        cards.forEach(function (card) {
+          card.addEventListener('click', function () {
+            toggleCard(card);
+          });
+
+          card.addEventListener('keydown', function (event) {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            toggleCard(card);
+          });
         });
       })();
     </script>
