@@ -923,6 +923,7 @@
           gap: 8px;
           width: 100%;
           margin-top: 0;
+          align-items: start;
         }
 
         .printing-feature-card-wide.printing-feature-card-wide-rounded .printing-feature-card-inner {
@@ -958,11 +959,12 @@
           display: none;
         }
 
-        .printing-feature-card-mini--mobile-toggle {
+        .printing-feature-card-wide-rounded .printing-feature-card-mini--mobile-toggle {
           cursor: pointer;
-          height: 40px;
-          min-height: 40px;
-          max-height: 40px;
+          height: 40px !important;
+          min-height: 40px !important;
+          max-height: 40px !important;
+          box-sizing: border-box;
           padding-top: 4px;
           padding-bottom: 4px;
           overflow: hidden;
@@ -981,13 +983,13 @@
           top: 5px;
         }
 
-        .printing-feature-card-mini--mobile-toggle.is-expanded {
-          height: 80px;
-          min-height: 80px;
-          max-height: 80px;
+        .printing-feature-card-wide-rounded .printing-feature-card-mini--mobile-toggle.is-expanded {
+          height: 110px !important;
+          min-height: 110px !important;
+          max-height: 110px !important;
           padding-top: 18px;
           padding-bottom: 18px;
-          overflow: auto;
+          overflow: hidden;
         }
 
         .printing-feature-card-mini--mobile-toggle.is-expanded .printing-feature-card-mini-copy .printing-feature-card-text {
@@ -1211,6 +1213,7 @@
         gap: 8px;
         width: 100%;
         margin-top: 0;
+        align-items: start;
       }
 
       body.is-browser-zoomed .printing-feature-card-wide-rounded .printing-feature-card-mini {
@@ -1236,11 +1239,12 @@
         display: none;
       }
 
-      body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle {
+      body.is-browser-zoomed .printing-feature-card-wide-rounded .printing-feature-card-mini--mobile-toggle {
         cursor: pointer;
-        height: 40px;
-        min-height: 40px;
-        max-height: 40px;
+        height: 40px !important;
+        min-height: 40px !important;
+        max-height: 40px !important;
+        box-sizing: border-box;
         padding-top: 4px;
         padding-bottom: 4px;
         overflow: hidden;
@@ -1259,13 +1263,13 @@
         top: 5px;
       }
 
-      body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle.is-expanded {
-        height: 80px;
-        min-height: 80px;
-        max-height: 80px;
+      body.is-browser-zoomed .printing-feature-card-wide-rounded .printing-feature-card-mini--mobile-toggle.is-expanded {
+        height: 110px !important;
+        min-height: 110px !important;
+        max-height: 110px !important;
         padding-top: 18px;
         padding-bottom: 18px;
-        overflow: auto;
+        overflow: hidden;
       }
 
       body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle.is-expanded .printing-feature-card-mini-copy .printing-feature-card-text {
