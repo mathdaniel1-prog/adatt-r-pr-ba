@@ -765,7 +765,7 @@
 
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 900px) and (hover: none) and (pointer: coarse) {
         .printing-image-section {
           margin-top: 0;
           padding: 0;
@@ -1120,282 +1120,11 @@
 
       }
 
-      body.is-browser-zoomed .printing-image-section {
-        margin-top: 0;
-        padding: 0;
-      }
-
-      body.is-browser-zoomed {
-        overflow-x: hidden;
-      }
-
-      body.is-browser-zoomed .printing-intro-card-grid,
-      body.is-browser-zoomed .printing-intro-card--feature-group,
-      body.is-browser-zoomed .printing-feature-grid {
-        grid-template-columns: 1fr;
-        width: calc(100% - 16px);
-        gap: 16px;
-      }
-
-      body.is-browser-zoomed .printing-intro-card-grid {
-        margin-top: 18px;
-      }
-
-      body.is-browser-zoomed .printing-intro-card,
-      body.is-browser-zoomed .printing-intro-small-card {
-        min-height: 0;
-        padding: 18px;
-        background: #ffffff;
-        border-radius: 18px;
-      }
-
-      body.is-browser-zoomed .printing-intro-text-card {
-        margin: 0;
-        padding: 18px;
-        font-size: 11px;
-        line-height: 1.5;
-        overflow-wrap: anywhere;
-      }
-
-      body.is-browser-zoomed .printing-intro-small-card-image,
-      body.is-browser-zoomed .printing-feature-card-wide-rounded .printing-feature-card-image-placeholder,
-      body.is-browser-zoomed .printing-feature-card-wide-rounded .printing-feature-card-side-image,
-      body.is-browser-zoomed .printing-feature-card-wide-rounded .printing-feature-card-mini-image {
-        display: none;
-      }
-
-      body.is-browser-zoomed .printing-feature-grid,
-      body.is-browser-zoomed .printing-feature-card-wide {
-        width: 100%;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-wide.printing-feature-card-wide-rounded .printing-feature-card-inner {
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        padding: 0;
-      }
-
-      body.is-browser-zoomed .printing-feature-card.printing-feature-card-wide-rounded {
-        height: auto;
-        min-height: 0;
-        overflow: visible;
-        background: transparent;
-        border-radius: 0;
-      }
-
-      body.is-browser-zoomed .printing-about .home-about-content > .printing-feature-card-wide.printing-feature-card-wide-rounded {
-        width: calc(100% - 16px);
-        margin-left: 8px;
-        margin-right: 8px;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-main-copy {
-        padding: 18px;
-        background: #ffffff;
-        border-radius: 18px;
-        box-sizing: border-box;
-      }
-
-      body.is-browser-zoomed .printing-feature-card--warm .printing-feature-card-main-copy {
-        background: #E6E2DF;
-      }
-
-      body.is-browser-zoomed .printing-feature-card--warm .printing-feature-card-main-copy .printing-feature-card-title,
-      body.is-browser-zoomed .printing-feature-card--warm .printing-feature-card-main-copy .printing-feature-card-text {
-        color: #000000 !important;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-main-copy .printing-feature-card-title,
-      body.is-browser-zoomed .printing-feature-card-main-copy .printing-feature-card-text {
-        margin-left: 0;
-        color: #000000;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-main-copy .printing-feature-card-title {
-        margin-top: 0;
-        margin-bottom: 8px;
-        font-size: 18px;
-        line-height: 1.15;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-main-copy .printing-feature-card-text {
-        margin: 0;
-        font-size: 11px;
-        line-height: 1.5;
-        overflow-wrap: anywhere;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-wide-rounded .printing-feature-card-mini-list {
-        grid-template-rows: none;
-        grid-auto-rows: auto;
-        gap: 8px;
-        width: 100%;
-        margin-top: 0;
-        align-items: start;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-wide-rounded .printing-feature-card-mini {
-        top: 0;
-        left: 0;
-        width: 100%;
-        min-height: 0;
-        align-items: flex-start;
-        padding: 18px;
-        background: #ffffff;
-        border: none;
-        border-radius: 18px;
-        box-shadow: none;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-wide-rounded .printing-feature-card-mini-copy {
-        width: 100%;
-        flex: none;
-        text-align: left;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle .printing-feature-card-mini-copy .printing-feature-card-text {
-        display: none;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-wide-rounded .printing-feature-card-mini--mobile-toggle {
-        cursor: pointer;
-        height: 60px !important;
-        min-height: 60px !important;
-        max-height: 60px !important;
-        box-sizing: border-box;
-        padding-top: 4px;
-        padding-bottom: 4px;
-        overflow: hidden;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-mini--model-modification.printing-feature-card-mini--mobile-toggle {
-        flex-direction: row;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle .printing-feature-card-mini-copy {
-        align-self: center;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle .printing-feature-card-title {
-        position: relative;
-        top: 5px;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-wide-rounded .printing-feature-card-mini--mobile-toggle.is-expanded {
-        height: 110px !important;
-        min-height: 110px !important;
-        max-height: 110px !important;
-        padding-top: 18px;
-        padding-bottom: 18px;
-        overflow: hidden;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-mini--mobile-toggle.is-expanded .printing-feature-card-mini-copy .printing-feature-card-text {
-        display: block;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-mini-image-placeholders {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 8px;
-        width: 100%;
-        margin-top: 8px;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-mini-image-placeholders span {
-        display: block;
-        position: relative;
-        width: 100%;
-        aspect-ratio: 1;
-        overflow: hidden;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-mini-image-placeholders span img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      body.is-browser-zoomed .printing-feature-card--work {
-        width: calc(100% - 16px);
-        height: auto;
-        min-height: 0;
-        margin-left: 8px;
-        margin-right: 8px;
-        overflow: visible;
-        background: transparent;
-        border-radius: 0;
-      }
-
-      body.is-browser-zoomed .printing-feature-card--work .printing-feature-card-inner {
-        height: auto;
-        padding: 0;
-      }
-
-      body.is-browser-zoomed .printing-feature-card--work .printing-feature-card-image-caption {
-        position: static;
-        order: -1;
-        width: 100%;
-        min-height: 0;
-        margin: 0 0 16px;
-        padding: 18px;
-        background: #ffffff;
-        border-radius: 18px;
-        pointer-events: auto;
-        text-shadow: none;
-        box-sizing: border-box;
-      }
-
-      body.is-browser-zoomed .printing-feature-card--work .printing-feature-card-image-caption h3,
-      body.is-browser-zoomed .printing-feature-card--work .printing-feature-card-image-caption p {
-        color: #000000;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-image-caption--mobile-toggle {
-        cursor: pointer;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-image-caption--mobile-toggle p {
-        display: none;
-      }
-
-      body.is-browser-zoomed .printing-feature-card-image-caption--mobile-toggle.is-expanded p {
-        display: block;
-      }
-
-      body.is-browser-zoomed .printing-feature-card--work .printing-feature-card-image {
-        display: block;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 4 / 3;
-        object-fit: cover;
-        object-position: center;
-      }
-
-      body.is-browser-zoomed .printing-feature-card--work .printing-feature-card-inner--image-only {
-        aspect-ratio: 4 / 3;
-      }
-
-      body:not(.is-browser-zoomed) .printing-feature-card-mini--mobile-toggle .printing-feature-card-text,
-      body:not(.is-browser-zoomed) .printing-feature-card-image-caption--mobile-toggle p {
-        display: block;
-      }
-
-      body:not(.is-browser-zoomed) .printing-feature-card-image-caption--mobile-toggle {
-        cursor: default;
-      }
     </style>
     <script>
       (function () {
         var phoneUserAgent = /Android.*Mobile|iPhone|iPod|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        var touchPhoneViewport = window.matchMedia('(max-width: 900px)').matches &&
-          (navigator.maxTouchPoints > 0 || 'ontouchstart' in window);
-        if (phoneUserAgent || touchPhoneViewport) {
+        if (phoneUserAgent) {
           window.location.replace('mobil%203D%20nyomtat%C3%A1s.html');
         }
       })();
@@ -1418,10 +1147,7 @@
 
     <section class="printing-image-section" aria-label="3D nyomtatás minta kép">
       <div class="printing-image-frame">
-        <picture>
-          <source media="(max-width: 900px)" srcset="images/laputa1.webp" />
-          <img src="images/kezdokep.webp" class="printing-image" alt="Kezdőkép" />
-        </picture>
+        <img src="images/kezdokep.webp" class="printing-image" alt="Kezdőkép" />
         <div class="printing-image-fade-overlay" aria-hidden="true"></div>
         <div class="printing-image-overlay">
           <h1 class="hero-title">
@@ -1652,27 +1378,6 @@
       </div>
     </footer>
 
-    <script>
-      (function () {
-        var zoomClass = 'is-browser-zoomed';
-        var finePointer = window.matchMedia('(pointer: fine)');
-
-        function syncZoomLayout() {
-          var viewportWidth = window.innerWidth;
-          var windowWidth = window.outerWidth;
-          var zoomRatio = viewportWidth ? windowWidth / viewportWidth : 1;
-          var isBrowserZoomed = finePointer.matches && zoomRatio >= 1.5;
-
-          document.body.classList.toggle(zoomClass, isBrowserZoomed);
-        }
-
-        syncZoomLayout();
-        window.addEventListener('resize', syncZoomLayout, { passive: true });
-        if (finePointer.addEventListener) {
-          finePointer.addEventListener('change', syncZoomLayout);
-        }
-      })();
-
       (function () {
         var forms = document.querySelectorAll('[data-quick-mail-form]');
         forms.forEach(function (form) {
@@ -1842,7 +1547,7 @@
         if (!cards.length) return;
 
         function isMobileLayout() {
-          return document.body.classList.contains('is-browser-zoomed') || window.matchMedia('(max-width: 900px)').matches;
+          return window.matchMedia('(max-width: 900px) and (hover: none) and (pointer: coarse)').matches;
         }
 
         function toggleCard(card) {
