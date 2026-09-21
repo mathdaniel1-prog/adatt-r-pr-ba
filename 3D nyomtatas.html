@@ -1393,8 +1393,10 @@
     <script>
       (function () {
         var phoneUserAgent = /Android.*Mobile|iPhone|iPod|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        if (phoneUserAgent) {
-          window.location.replace(encodeURI('mobil 3D nyomtatás.html'));
+        var touchPhoneViewport = window.matchMedia('(max-width: 900px)').matches &&
+          (navigator.maxTouchPoints > 0 || 'ontouchstart' in window);
+        if (phoneUserAgent || touchPhoneViewport) {
+          window.location.replace('mobil%203D%20nyomtat%C3%A1s.html');
         }
       })();
     </script>
