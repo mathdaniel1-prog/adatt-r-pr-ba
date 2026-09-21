@@ -1390,6 +1390,14 @@
         cursor: default;
       }
     </style>
+    <script>
+      (function () {
+        var phoneUserAgent = /Android.*Mobile|iPhone|iPod|Windows Phone|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (phoneUserAgent) {
+          window.location.replace(encodeURI('mobil 3D nyomtatás.html'));
+        }
+      })();
+    </script>
   </head>
   <body>
     <header class="site-header">
