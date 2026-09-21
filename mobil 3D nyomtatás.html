@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobil 3D nyomtatás - Meteor</title>
+    <style>
+      @import url("./CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css");
+      @import url("./Satoshi_Complete/Satoshi_Complete/Fonts/WEB/css/satoshi.css");
+
+      :root {
+        --surface: #e6e2df;
+        --card: #ffffff;
+        --ink: #111111;
+        --muted: #3d3a38;
+        --line: #d5d0cc;
+        --heading: "Cabinet Grotesk", sans-serif;
+        --text: "Satoshi", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--surface);
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--surface);
+        color: var(--ink);
+        font-family: var(--text);
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .mobile-page {
+        width: min(100%, 560px);
+        margin: 0 auto;
+        padding-bottom: 32px;
+      }
+
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: transparent;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        transition: background-color 0.16s ease-out, border-color 0.16s ease-out;
+      }
+
+      .site-header.is-scrolled {
+        background: var(--surface);
+        border-bottom-color: var(--line);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: min(100%, 560px);
+        height: 48px;
+        margin: 0 auto;
+        padding: 0 18px;
+      }
+
+      .brand,
+      .back-link {
+        text-decoration: none;
+      }
+
+      .brand {
+        color: #ffffff;
+        font-family: var(--heading);
+        font-size: 22px;
+        font-weight: 800;
+        transition: color 0.16s ease-out;
+      }
+
+      .back-link {
+        color: #ffffff;
+        font-size: 12px;
+        transition: color 0.16s ease-out;
+      }
+
+      .site-header.is-scrolled .brand,
+      .site-header.is-scrolled .back-link {
+        color: var(--ink);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+        background: #111111;
+      }
+
+      .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .hero::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .hero h1 {
+        position: absolute;
+        z-index: 1;
+        right: 18px;
+        bottom: 18px;
+        left: 18px;
+        margin: 0;
+        color: #ffffff;
+        font-family: var(--heading);
+        font-size: clamp(36px, 12vw, 68px);
+        line-height: 0.9;
+      }
+
+      .intro,
+      .section {
+        padding: 18px 8px 0;
+      }
+
+      .intro-card,
+      .service-card,
+      .work-card,
+      .contact-card {
+        border-radius: 18px;
+        background: var(--card);
+      }
+
+      .intro-card {
+        display: grid;
+        gap: 8px;
+        padding: 18px;
+      }
+
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h2,
+      h3 {
+        font-family: var(--heading);
+        line-height: 1.05;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      p {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .intro-card p {
+        padding: 14px;
+        border-radius: 14px;
+        background: var(--surface);
+      }
+
+      .section-title {
+        padding: 22px 10px 10px;
+        font-size: 28px;
+      }
+
+      .service-card {
+        margin-top: 8px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+      }
+
+      .service-card > h3,
+      .service-card > p {
+        padding: 18px;
+      }
+
+      .service-card > h3 {
+        padding-bottom: 8px;
+      }
+
+      .service-card--warm {
+        background: var(--surface);
+      }
+
+      .service-card--warm > p {
+        padding-top: 0;
+      }
+
+      details {
+        border-top: 1px solid var(--line);
+      }
+
+      details:first-of-type {
+        border-top: 0;
+      }
+
+      .service-card > details.service-detail-separator {
+        border-top: 1px solid var(--line);
+      }
+
+      summary {
+        display: flex;
+        align-items: center;
+        min-height: 60px;
+        padding: 12px 18px;
+        cursor: pointer;
+        list-style: none;
+        font-family: var(--heading);
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary::after {
+        margin-left: auto;
+        content: "+";
+        font-family: var(--text);
+        font-size: 24px;
+        font-weight: 400;
+      }
+
+      details[open] summary::after {
+        content: "-";
+      }
+
+      details > p {
+        padding: 0 18px 18px;
+      }
+
+      .work-card {
+        margin-top: 16px;
+        overflow: hidden;
+      }
+
+      .work-card img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .work-card summary {
+        background: var(--card);
+      }
+
+      .work-card details {
+        border-top: 0;
+      }
+
+      .work-card details > p {
+        padding: 0 18px 18px;
+      }
+
+      .contact-card {
+        display: grid;
+        gap: 8px;
+        margin: 32px 8px 0;
+        padding: 18px;
+      }
+
+      @media (min-width: 561px) {
+        body {
+          padding: 0 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">Meteor</a>
+        <a class="back-link" href="3D%20nyomtatas.html">Asztali nézet</a>
+      </div>
+    </header>
+
+    <main class="mobile-page">
+      <section class="hero" aria-label="3D nyomtatás">
+        <img src="images/laputa1.webp" alt="Laputa robot 3D nyomtatott modell" />
+        <h1>3D<br />nyomtatás</h1>
+      </section>
+
+      <section class="intro" aria-labelledby="intro-title">
+        <article class="intro-card">
+          <h2 id="intro-title">Egyedi és kisszériás 3D nyomtatás</h2>
+          <p>Egyedi ötlet, praktikus alkatrész vagy egy különleges tárgy a 3D nyomtatás segítségével kézzelfoghatóvá válhat. Az ötlettől a kész tárgyig vállaljuk a tervezést, a modellezést és a precíz 3D nyomtatást, hogy az elképzelésedből valóban működő, használható tárgy szülessen.</p>
+          <p>A tárgyakat 3D nyomtatásra optimalizáljuk, hogy a legszebb felületi minőséget érhessük el, és úgy nyomtatjuk, hogy a tárgy a legjobban ellenálljon a terheléseknek.</p>
+          <p>Az akár 4 színben történő nyomtatás lehetőséget ad látványos és összetettebb tárgyak megvalósítására, legyen szó prototípusról, kisebb szériáról vagy egyedi tárgyról.</p>
+        </article>
+      </section>
+
+      <section class="section" aria-labelledby="services-title">
+        <h2 class="section-title" id="services-title">Szolgáltatások</h2>
+
+        <article class="service-card service-card--warm">
+          <h3>Precíz 3D tervezés - Alkatrész 3D nyomtatás</h3>
+          <p>Alkatrészek 3D modellezése és nyomtatása. Törött vagy hiányzó alkatrészek újramodellezése, meglévő STL fájlok módosítása és optimalizálása, valamint egyedi, szükséges alkatrészek tervezése és elkészítése 3D nyomtatással.</p>
+          <details class="service-detail-separator">
+            <summary>Alkatrész újra modellezésé</summary>
+            <p>Meglévő, sérült vagy törött alkatrészek pontos újra modellezésé, szükség esetén a szerkezet megerősítésével és tovább fejlesztésével.</p>
+          </details>
+          <details>
+            <summary>3D modellek módosítása és nyomtatása</summary>
+            <p>Speciális alkatrészek elkészítése létező fájlok alapján, STL fájlok átalakítása és 3D nyomtatása.</p>
+          </details>
+        </article>
+
+        <article class="service-card service-card--warm">
+          <h3>Flexi tervezés és nyomtatás</h3>
+          <p>A 3D nyomtatás sajátja, hogy mozgó, egymásba fonódó elemeket képest létrehozni. Ezzel a technikával összeszerelés nélkül alkothatunk komplex mozgatható tárgyakat. Egészen laza és egészen szoros öntartó csomópontok is létrehozhatók.<br />Készítsünk együtt olyan egyedi flexi terméket amilyen még senki másnak nincs!</p>
+          <details class="service-detail-separator">
+            <summary>Flexi nyomtatás</summary>
+            <p>Flexi modell készítés és nyomtatás akár 4 szín használatával.</p>
+          </details>
+          <details>
+            <summary>Stl fájl készítése otthoni 3D nyomtatáshoz</summary>
+            <p>Saját flexi termékpaletta készítése otthoni nyomtatáshoz vagy a fájlok értékesítéséhez.</p>
+          </details>
+        </article>
+
+        <article class="service-card service-card--warm">
+          <h3>Organikus 3D modellezés</h3>
+          <p>Organikus elemek 3D modellezése 3D nyomtatásra. Figurák, lények, kellékek, prop.</p>
+        </article>
+      </section>
+
+      <section class="section" aria-labelledby="works-title">
+        <h2 class="section-title" id="works-title">Munkák</h2>
+
+        <article class="work-card">
+          <img src="images/Ny13.webp" alt="Carcassonne 3D nyomtatott kiegészítő" />
+          <details>
+            <summary>Carcassonne társasjáték-kiegészítő</summary>
+            <p>3D nyomtatott társasjáték-csempék. Más után gyártott kiegészítőkhöz képest jobb, mert a domborzata a lapoknak mindig egy bizonyos vastagságon belül marad, így a csempék lefordítva egymásra helyezhetők.</p>
+          </details>
+        </article>
+
+        <article class="work-card">
+          <img src="images/ny11.webp" alt="3D nyomtatott bűvöskocka" />
+          <details>
+            <summary>3D nyomtatott bűvöskocka</summary>
+            <p>Teljes mértékben 3D nyomtatásra van tervezve. Az összeszereléséhez nincs szükség más anyagokra és elemekre csak PLA filamentre. Olyan 3D nyomtatott csomópontok látják el a forgatás és az összetartás feladatát, amik évek múltán is erősek maradnak.</p>
+          </details>
+        </article>
+
+        <article class="work-card">
+          <img src="images/laputa2.webp" alt="Laputa robot 3D nyomtatott modell" />
+          <details>
+            <summary>Laputa robot</summary>
+            <p>Egy rajongói robot modell a Laputa - Az égi palota című animációs filmből. A robot egyedi speciális öntartó csomópontokkal rendelkezik. A flexi tárgyak részei általában láncszerűen lazán csatlakoznak egymáshoz, ellenben ez a tárgy nagyon jól tartja magát, így a figurával akrobatikus mozdulatok is beállíthatók.</p>
+          </details>
+        </article>
+
+        <article class="work-card">
+          <img src="images/NY14.webp" alt="3D nyomtatott flexi kígyó" />
+          <details>
+            <summary>3D nyomtatott flexi kígyó</summary>
+            <p>Ez egy rendkívül sok lamellából álló konstrukció. A flexi csatlakozói nagyon aprók, a méretük közelíti a 0,4-es extruder korlátait. A kígyó 10 cm hosszú szegmensekből tevődik össze, így a teljes hossza személyre szabható.</p>
+          </details>
+        </article>
+      </section>
+
+      <section class="contact-card" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Kapcsolat</h2>
+        <p>Tel: 30 521 66 66</p>
+        <p>Email: info@meteor.hu</p>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        var header = document.querySelector('.site-header');
+        if (!header) return;
+
+        function syncHeaderState() {
+          header.classList.toggle('is-scrolled', window.scrollY >= 114);
+        }
+
+        syncHeaderState();
+        window.addEventListener('scroll', syncHeaderState, { passive: true });
+      })();
+    </script>
+  </body>
+</html>

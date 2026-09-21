@@ -1380,6 +1380,15 @@
       body.is-browser-zoomed .printing-feature-card--work .printing-feature-card-inner--image-only {
         aspect-ratio: 4 / 3;
       }
+
+      body:not(.is-browser-zoomed) .printing-feature-card-mini--mobile-toggle .printing-feature-card-text,
+      body:not(.is-browser-zoomed) .printing-feature-card-image-caption--mobile-toggle p {
+        display: block;
+      }
+
+      body:not(.is-browser-zoomed) .printing-feature-card-image-caption--mobile-toggle {
+        cursor: default;
+      }
     </style>
   </head>
   <body>
@@ -1424,12 +1433,12 @@
         </article>
         <div class="printing-intro-card--feature-group" aria-label="3D nyomtatási szolgáltatások">
           <article class="printing-intro-small-card">
-            <img class="printing-intro-small-card-image" src="portfolio/nyportfolio/p1s.jpg" alt="Precíz FDM 3D nyomtatás" />
+            <img class="printing-intro-small-card-image" src="images/p1s.jpg" alt="Precíz FDM 3D nyomtatás" />
             <h3>Precíz FDM 3D nyomtatás</h3>
             <p>Kiváló jól kidolgozott részletek és jól illeszkedő elemek 3D nyomtatására.</p>
           </article>
           <article class="printing-intro-small-card">
-            <img class="printing-intro-small-card-image" src="portfolio/nyportfolio/p1s2.jpg" alt="4 színű FDM 3D nyomtatás" />
+            <img class="printing-intro-small-card-image" src="images/p1s2.jpg" alt="4 színű FDM 3D nyomtatás" />
             <h3>4 színű FDM 3D nyomtatás</h3>
             <p>3D nyomtatás akár 4 szín felhasználásával. Fröccsöntött termékre emlékeztető megjelenés.</p>
           </article>
@@ -1443,16 +1452,16 @@
           <div class="about-content home-about-content">
             <div class="printing-feature-reveal" id="feature-reveal-1" aria-hidden="true">
               <div class="printing-feature-grid" aria-label="Flexi nyomtatás bővített kártyák">
-                <article class="printing-feature-card"><div class="printing-feature-card-inner"><h3 class="printing-feature-card-title">Flexi kulcstartó</h3><p class="printing-feature-card-text">A flexi, vagy articulated 3D nyomtatott tárgyak több, egymásba kapcsolódó elemből állnak, amelyek szabadon mozgathatók, ugyanakkor nem szedhetők szét, és nem kell őket összerakni sem.</p><div class="printing-feature-card-media"><img class="printing-feature-card-inline-image" src="portfolio/nyportfolio/flexi1.jpg" alt="Flexi kulcstartó példa" /></div></div></article>
-                <article class="printing-feature-card"><div class="printing-feature-card-inner"><h3 class="printing-feature-card-title">Miniatűr termékmodell</h3><p class="printing-feature-card-text">Kézbe fogható lekicsinyített modell a termékről. Asztaldíszként vagy kulcstartóként. Akár színesen nyomtatva.</p><div class="printing-feature-card-media"><img class="printing-feature-card-inline-image" src="portfolio/nyportfolio/miniatur.jpg" alt="Miniatűr termékmodell példa" /></div></div></article>
+                <article class="printing-feature-card"><div class="printing-feature-card-inner"><h3 class="printing-feature-card-title">Flexi kulcstartó</h3><p class="printing-feature-card-text">A flexi, vagy articulated 3D nyomtatott tárgyak több, egymásba kapcsolódó elemből állnak, amelyek szabadon mozgathatók, ugyanakkor nem szedhetők szét, és nem kell őket összerakni sem.</p><div class="printing-feature-card-media"><img class="printing-feature-card-inline-image" src="images/flexi1.jpg" alt="Flexi kulcstartó példa" /></div></div></article>
+                <article class="printing-feature-card"><div class="printing-feature-card-inner"><h3 class="printing-feature-card-title">Miniatűr termékmodell</h3><p class="printing-feature-card-text">Kézbe fogható lekicsinyített modell a termékről. Asztaldíszként vagy kulcstartóként. Akár színesen nyomtatva.</p><div class="printing-feature-card-media"><img class="printing-feature-card-inline-image" src="images/miniatur.jpg" alt="Miniatűr termékmodell példa" /></div></div></article>
                 <article class="printing-feature-card"><div class="printing-feature-card-inner"><h3 class="printing-feature-card-title">Bármi más</h3><p class="printing-feature-card-text">Egyedi ötletek tervezése és megvalósítása 3D modellezéssel és nyomtatással.</p><div class="printing-feature-card-media printing-feature-card-media--placeholder">Kép</div></div></article>
               </div>
             </div>
 
             <div class="printing-feature-reveal" id="feature-reveal-2" aria-hidden="true">
               <div class="printing-feature-grid" aria-label="Prototípus bővített kártyák">
-                <article class="printing-feature-card"><div class="printing-feature-card-inner"><h3 class="printing-feature-card-title">Flexi kulcstartó</h3><p class="printing-feature-card-text">A flexi, vagy articulated 3D nyomtatott tárgyak több, egymásba kapcsolódó elemből állnak, amelyek szabadon mozgathatók, ugyanakkor nem szedhetők szét, és nem kell őket összerakni sem.</p><div class="printing-feature-card-media"><img class="printing-feature-card-inline-image" src="portfolio/nyportfolio/flexi1.jpg" alt="Flexi kulcstartó példa" /></div></div></article>
-                <article class="printing-feature-card"><div class="printing-feature-card-inner"><h3 class="printing-feature-card-title">Miniatűr termékmodell</h3><p class="printing-feature-card-text">Kézbe fogható lekicsinyített modell a termékről. Asztaldíszként vagy kulcstartóként. Akár színesen nyomtatva.</p><div class="printing-feature-card-media"><img class="printing-feature-card-inline-image" src="portfolio/nyportfolio/miniatur.jpg" alt="Miniatűr termékmodell példa" /></div></div></article>
+                <article class="printing-feature-card"><div class="printing-feature-card-inner"><h3 class="printing-feature-card-title">Flexi kulcstartó</h3><p class="printing-feature-card-text">A flexi, vagy articulated 3D nyomtatott tárgyak több, egymásba kapcsolódó elemből állnak, amelyek szabadon mozgathatók, ugyanakkor nem szedhetők szét, és nem kell őket összerakni sem.</p><div class="printing-feature-card-media"><img class="printing-feature-card-inline-image" src="images/flexi1.jpg" alt="Flexi kulcstartó példa" /></div></div></article>
+                <article class="printing-feature-card"><div class="printing-feature-card-inner"><h3 class="printing-feature-card-title">Miniatűr termékmodell</h3><p class="printing-feature-card-text">Kézbe fogható lekicsinyített modell a termékről. Asztaldíszként vagy kulcstartóként. Akár színesen nyomtatva.</p><div class="printing-feature-card-media"><img class="printing-feature-card-inline-image" src="images/miniatur.jpg" alt="Miniatűr termékmodell példa" /></div></div></article>
               </div>
             </div>
 
@@ -1482,28 +1491,28 @@
                   <p class="printing-feature-card-text">Alkatrészek 3D modellezése és nyomtatása. Törött vagy hiányzó alkatrészek újramodellezése, meglévő STL fájlok módosítása és optimalizálása, valamint egyedi, szükséges alkatrészek tervezése és elkészítése 3D nyomtatással.</p>
                 </div>
                 <div class="printing-feature-card-mini-list" aria-label="További kártyák">
-                  <div class="printing-feature-card-mini printing-feature-card-mini--mobile-toggle" role="button" tabindex="0" aria-expanded="false">
-                    <img class="printing-feature-card-mini-image" src="portfolio/nyportfolio/teszt1.jpg" alt="Törött alkatrész újramodellezése" />
+                  <div class="printing-feature-card-mini">
+                    <img class="printing-feature-card-mini-image" src="images/teszt1.JPG" alt="Törött alkatrész újramodellezése" />
                     <div class="printing-feature-card-mini-copy">
                       <h3 class="printing-feature-card-title">Alkatrész újra modellezésé</h3>
                       <p class="printing-feature-card-text">Meglévő, sérült vagy törött alkatrészek pontos újra modellezésé, szükség esetén a szerkezet megerősítésével és tovább fejlesztésével.</p>
                     </div>
                   </div>
                   <div class="printing-feature-card-mini printing-feature-card-mini--model-modification printing-feature-card-mini--mobile-toggle" role="button" tabindex="0" aria-expanded="false">
-                    <img class="printing-feature-card-mini-image" src="portfolio/nyportfolio/teszt2.jpg" alt="3D modellek módosítása és nyomtatása" />
+                    <img class="printing-feature-card-mini-image" src="images/teszt2.JPG" alt="3D modellek módosítása és nyomtatása" />
                     <div class="printing-feature-card-mini-copy">
                       <h3 class="printing-feature-card-title">3D modellek módosítása és nyomtatása</h3>
                       <p class="printing-feature-card-text">Speciális alkatrészek elkészítése létező fájlok alapján, STL fájlok átalakítása és 3D nyomtatása.</p>
                     </div>
                   </div>
                   <div class="printing-feature-card-mini-image-placeholders" aria-label="Három képhely">
-                    <span><img src="portfolio/nyportfolio/NY2.jpg" alt="NY2 3D nyomtatott modell" /></span>
-                    <span><img src="portfolio/nyportfolio/teszt1.jpg" alt="Törött alkatrész újramodellezése" /></span>
-                    <span><img src="portfolio/nyportfolio/teszt2.jpg" alt="3D modellek módosítása és nyomtatása" /></span>
+                    <span><img src="images/NY2.jpg" alt="NY2 3D nyomtatott modell" /></span>
+                    <span><img src="images/teszt1.JPG" alt="Törött alkatrész újramodellezése" /></span>
+                    <span><img src="images/teszt2.JPG" alt="3D modellek módosítása és nyomtatása" /></span>
                   </div>
                 </div>
               </div>
-              <img class="printing-feature-card-image-placeholder" src="portfolio/nyportfolio/NY2.jpg" alt="NY2 3D nyomtatott modell" />
+              <img class="printing-feature-card-image-placeholder" src="images/NY2.jpg" alt="NY2 3D nyomtatott modell" />
             </article>
             <article class="printing-feature-card printing-feature-card-wide printing-feature-card-wide-rounded printing-feature-card-wide-rounded--inverted printing-feature-card-wide-rounded--flexi printing-feature-card-wide-rounded--scroll-reveal printing-feature-card--warm">
               <div class="printing-feature-card-inner">
@@ -1513,7 +1522,7 @@
                 </div>
                 <div class="printing-feature-card-mini-list" aria-label="További kártyák">
                   <div class="printing-feature-card-mini printing-feature-card-mini--mobile-toggle" role="button" tabindex="0" aria-expanded="false">
-                    <img class="printing-feature-card-mini-image" src="portfolio/nyportfolio/flexi1.jpg" alt="Egyedi flexi tárgy" />
+                    <img class="printing-feature-card-mini-image" src="images/flexi1.jpg" alt="Egyedi flexi tárgy" />
                     <div class="printing-feature-card-mini-copy">
                       <h3 class="printing-feature-card-title">Flexi nyomtatás</h3>
                       <p class="printing-feature-card-text">Flexi modell készítés és nyomtatás akár 4 szín használatával.</p>
@@ -1533,7 +1542,7 @@
                   </div>
                 </div>
               </div>
-              <img class="printing-feature-card-image-placeholder" src="portfolio/nyportfolio/laputa1.JPG" alt="Laputa1 3D nyomtatott modell" />
+              <img class="printing-feature-card-image-placeholder" src="images/laputa1.JPG" alt="Laputa1 3D nyomtatott modell" />
             </article>
             <article class="printing-feature-card printing-feature-card-wide printing-feature-card-wide-rounded printing-feature-card-wide-rounded--product printing-feature-card-wide-rounded--custom printing-feature-card-wide-rounded--scroll-reveal">
               <div class="printing-feature-card-inner">
@@ -1545,9 +1554,9 @@
                 <span></span>
                 <span></span>
               </div>
-              <img class="printing-feature-card-side-image printing-feature-card-side-image--ny12-copy" src="portfolio/nyportfolio/ny12.jpg" alt="NY12 3D nyomtatott modell" />
-              <img class="printing-feature-card-side-image printing-feature-card-side-image--middle-placeholder" src="portfolio/nyportfolio/nyf.avif" alt="NYF 3D nyomtatott modell" />
-              <img class="printing-feature-card-side-image printing-feature-card-side-image--right-large" src="portfolio/nyportfolio/Dia3.PNG" alt="Dia3 3D nyomtatott modell" />
+              <img class="printing-feature-card-side-image printing-feature-card-side-image--ny12-copy" src="images/ny12.jpg" alt="NY12 3D nyomtatott modell" />
+              <img class="printing-feature-card-side-image printing-feature-card-side-image--middle-placeholder" src="images/nyf.avif" alt="NYF 3D nyomtatott modell" />
+              <img class="printing-feature-card-side-image printing-feature-card-side-image--right-large" src="images/Dia3.PNG" alt="Dia3 3D nyomtatott modell" />
             </article>
             <article class="printing-services-title-card printing-services-title-card--works">
               <h2 class="printing-services-title">Munkák</h2>
@@ -1835,6 +1844,7 @@
 
         cards.forEach(function (card) {
           card.addEventListener('click', function (event) {
+            if (!isMobileLayout()) return;
             if (card.classList.contains('printing-feature-card-image-caption--mobile-toggle')) {
               event.preventDefault();
               event.stopPropagation();
@@ -1843,6 +1853,7 @@
           });
 
           card.addEventListener('keydown', function (event) {
+            if (!isMobileLayout()) return;
             if (event.key !== 'Enter' && event.key !== ' ') return;
             event.preventDefault();
             if (card.classList.contains('printing-feature-card-image-caption--mobile-toggle')) {
