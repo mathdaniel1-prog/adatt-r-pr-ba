@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script>
+  const files = [
+    'p1s.jpg', 'p1s2.jpg', 'flexi1.jpg', 'miniatur.jpg', 'teszt2.JPG',
+    'NY2.jpg', 'laputa1.JPG', 'ny12.jpg', 'nyf.avif', 'Dia3.PNG'
+  ];
+
+  async function convert(file) {
+    const image = new Image();
+    image.src = `images/${file}`;
+    await new Promise((resolve, reject) => {
+      image.onload = resolve;
+      image.onerror = reject;
+    });
+    const canvas = document.createElement('canvas');
+    canvas.width = image.naturalWidth;
+    canvas.height = image.naturalHeight;
+    canvas.getContext('2d').drawImage(image, 0, 0);
+    const link = document.createElement('a');
+    link.download = `${file.replace(/\.[^.]+$/, '')}.webp`;
+    link.href = canvas.toDataURL('image/webp', 0.9);
+    link.click();
+  }
+
+  (async () => {
+    for (const file of files) await convert(file);
+    document.title = 'done';
+  })();
+</script>
+</body>
+</html>
