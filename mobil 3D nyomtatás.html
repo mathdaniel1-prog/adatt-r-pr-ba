@@ -185,7 +185,12 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
+        cursor: grab;
         transition: opacity 0.2s ease;
+      }
+
+      .hero img.is-dragging {
+        cursor: grabbing;
       }
 
       .hero::after {
@@ -208,6 +213,31 @@
         font-size: clamp(32px, 10vw, 56px);
         line-height: 0.9;
         text-align: center;
+      }
+
+      .hero-dots {
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        bottom: 14px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .hero-dot {
+        width: 9px;
+        height: 9px;
+        padding: 0;
+        border: 1px solid #ffffff;
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .hero-dot.is-active {
+        background: #ffffff;
       }
 
       .intro,
@@ -397,7 +427,12 @@
     <main class="mobile-page">
       <section class="hero" aria-label="3D nyomtatás">
         <img class="hero-slider-image" src="images/Dia3.webp" alt="Dia3 3D nyomtatott modell" />
-        <h1>3D<br />nyomtatás</h1>
+        <h1><span>3D</span><br /><span>nyomtatás</span></h1>
+        <div class="hero-dots" aria-label="Képek közötti navigáció">
+          <button class="hero-dot is-active" type="button" aria-label="Első kép" aria-current="true"></button>
+          <button class="hero-dot" type="button" aria-label="Második kép" aria-current="false"></button>
+          <button class="hero-dot" type="button" aria-label="Harmadik kép" aria-current="false"></button>
+        </div>
       </section>
 
       <section class="intro" aria-labelledby="intro-title">
@@ -529,10 +564,17 @@
           { src: 'images/ny4.webp', alt: 'NY4 3D nyomtatott modell' }
         ];
         var currentIndex = 0;
-        var touchStartX = 0;
+        var startX = 0;
+        var isDragging = false;
+        var dots = document.querySelectorAll('.hero-dot');
 
         function showSlide(index) {
           currentIndex = (index + slides.length) % slides.length;
+          dots.forEach(function (dot, dotIndex) {
+            var isActive = dotIndex === currentIndex;
+            dot.classList.toggle('is-active', isActive);
+            dot.setAttribute('aria-current', String(isActive));
+          });
           image.style.opacity = '0';
           window.setTimeout(function () {
             image.src = slides[currentIndex].src;
@@ -541,19 +583,31 @@
           }, 120);
         }
 
-        image.addEventListener('touchstart', function (event) {
-          touchStartX = event.changedTouches[0].clientX;
-        }, { passive: true });
+        image.addEventListener('pointerdown', function (event) {
+          startX = event.clientX;
+          isDragging = true;
+          image.classList.add('is-dragging');
+          image.setPointerCapture(event.pointerId);
+        });
 
-        image.addEventListener('touchend', function (event) {
-          var distance = event.changedTouches[0].clientX - touchStartX;
+        image.addEventListener('pointerup', function (event) {
+          if (!isDragging) return;
+          var distance = event.clientX - startX;
+          isDragging = false;
+          image.classList.remove('is-dragging');
           if (Math.abs(distance) < 40) return;
           showSlide(currentIndex + (distance < 0 ? 1 : -1));
-        }, { passive: true });
+        });
 
-        image.addEventListener('keydown', function (event) {
-          if (event.key === 'ArrowRight') showSlide(currentIndex + 1);
-          if (event.key === 'ArrowLeft') showSlide(currentIndex - 1);
+        image.addEventListener('pointercancel', function () {
+          isDragging = false;
+          image.classList.remove('is-dragging');
+        });
+
+        dots.forEach(function (dot, dotIndex) {
+          dot.addEventListener('click', function () {
+            showSlide(dotIndex);
+          });
         });
       })();
     </script>
