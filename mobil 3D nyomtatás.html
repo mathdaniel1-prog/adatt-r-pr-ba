@@ -88,6 +88,10 @@
         transition: color 0.16s ease-out;
       }
 
+      .site-header.is-scrolled .brand {
+        color: var(--ink);
+      }
+
       .back-link {
         display: none;
       }
@@ -171,7 +175,8 @@
       .hero {
         position: relative;
         overflow: hidden;
-        aspect-ratio: 4 / 3;
+        width: 100%;
+        aspect-ratio: 1 / 1;
         background: #111111;
       }
 
@@ -199,7 +204,7 @@
         transform: translateY(-50%);
         color: #ffffff;
         font-family: var(--heading);
-        font-size: clamp(36px, 12vw, 68px);
+        font-size: clamp(32px, 10vw, 56px);
         line-height: 0.9;
         text-align: center;
       }
@@ -390,7 +395,7 @@
 
     <main class="mobile-page">
       <section class="hero" aria-label="3D nyomtatás">
-        <img src="images/laputa1.webp" alt="Laputa robot 3D nyomtatott modell" />
+        <img src="images/ny20.webp" alt="NY20 3D nyomtatott modell" />
         <h1>3D<br />nyomtatás</h1>
       </section>
 
