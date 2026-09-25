@@ -316,7 +316,7 @@
         width: 250px;
         height: 360px;
         max-width: 100%;
-        background: #ffffff;
+        background: var(--printing-surface);
         border: none;
         border-radius: 18px;
         overflow: hidden;
@@ -355,7 +355,7 @@
       }
 
       .printing-feature-card.printing-feature-card-wide-rounded--inverted {
-        background: #ffffff;
+        background: var(--printing-surface);
       }
 
       .printing-feature-card-wide-rounded--inverted .printing-feature-card-title,
@@ -392,7 +392,7 @@
         max-width: 1120px;
         height: 420px;
         margin: 47px auto 0;
-        background: #ffffff;
+        background: var(--printing-surface);
         border: none;
         border-radius: 0;
         overflow: hidden;
@@ -474,7 +474,7 @@
       }
 
       .printing-feature-card-wide-rounded--inverted .printing-feature-card-mini {
-        background: #ffffff;
+        background: var(--printing-surface);
         border-color: #e6e6e6;
         box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
       }
@@ -802,7 +802,7 @@
           padding-right: 8px;
           padding-top: 16px;
           padding-bottom: 0;
-          background: #ffffff;
+          background: var(--printing-surface);
         }
 
         .printing-intro-card-copy {
@@ -820,7 +820,7 @@
         .printing-intro-text-card {
           margin: 0;
           padding: 18px;
-          background: #ffffff;
+          background: var(--printing-surface);
           border-radius: 18px;
           box-sizing: border-box;
           font-size: 11px;
@@ -847,7 +847,7 @@
           justify-content: center;
           min-height: 0;
           padding: 18px;
-          background: #ffffff;
+          background: var(--printing-surface);
           border-radius: 18px;
         }
 
@@ -888,7 +888,7 @@
 
         .printing-feature-card-main-copy {
           padding: 18px;
-          background: #ffffff;
+          background: var(--printing-surface);
           border-radius: 18px;
           box-sizing: border-box;
         }
@@ -942,7 +942,7 @@
           width: 100%;
           align-items: flex-start;
           padding: 18px;
-          background: #ffffff;
+          background: var(--printing-surface);
           border: none;
           border-radius: 18px;
           box-shadow: none;
@@ -1081,7 +1081,7 @@
           min-height: 0;
           margin: 0 0 16px;
           padding: 18px;
-          background: #ffffff;
+          background: var(--printing-surface);
           border-radius: 18px;
           pointer-events: auto;
           text-shadow: none;
@@ -1254,7 +1254,7 @@
               <div class="printing-feature-card-inner">
                 <div class="printing-feature-card-main-copy">
                   <h3 class="printing-feature-card-title">Flexi tervezés és nyomtatás</h3>
-                  <p class="printing-feature-card-text">A 3D nyomtatás sajátja, hogy mozgó, egymásba fonódó elemeket képest létrehozni. Ezzel a technikával összeszerelés nélkül alkothatunk komplex mozgatható tárgyakat. Egészen laza és egészen szoros öntartó csomópontok is létrehozhatók.<br />Készítsünk együtt olyan egyedi flexi terméket amilyen még senki másnak nincs!</p>
+                  <p class="printing-feature-card-text">A 3D nyomtatás sajátja, hogy mozgó, egymásba fonódó elemeket képest létrehozni. Ezzel a technikával összeszerelés nélkül alkothatunk komplex mozgatható tárgyakat. Egészen laza és egészen szoros öntartó csomópontok is létrehozhatók. Készítsünk együtt olyan egyedi flexi terméket amilyen még senki másnak nincs!</p>
                 </div>
                 <div class="printing-feature-card-mini-list" aria-label="További kártyák">
                   <div class="printing-feature-card-mini printing-feature-card-mini--mobile-toggle" role="button" tabindex="0" aria-expanded="false">
@@ -1378,6 +1378,7 @@
       </div>
     </footer>
 
+    <script>
       (function () {
         var forms = document.querySelectorAll('[data-quick-mail-form]');
         forms.forEach(function (form) {

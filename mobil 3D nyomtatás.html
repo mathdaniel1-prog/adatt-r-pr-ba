@@ -89,14 +89,83 @@
       }
 
       .back-link {
-        color: #ffffff;
-        font-size: 12px;
-        transition: color 0.16s ease-out;
+        display: none;
       }
 
-      .site-header.is-scrolled .brand,
-      .site-header.is-scrolled .back-link {
+      .menu-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .menu-btn span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: #ffffff;
+        transition: background-color 0.16s ease-out, transform 0.3s ease, opacity 0.3s ease;
+        transform-origin: center;
+      }
+
+      .site-header.is-scrolled .menu-btn span {
+        background: var(--ink);
+      }
+
+      .menu-btn.open span:first-child {
+        transform: translateY(4px) rotate(45deg);
+      }
+
+      .menu-btn.open span:last-child {
+        transform: translateY(-4px) rotate(-45deg);
+      }
+
+      .mobile-overlay {
+        position: fixed;
+        top: 48px;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        padding: 8px 18px 14px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+        transform: translateY(-110%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .mobile-overlay.open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .mobile-nav {
+        display: grid;
+        gap: 2px;
+        width: min(100%, 560px);
+        margin: 0 auto;
+      }
+
+      .mobile-nav a {
+        padding: 8px 0;
         color: var(--ink);
+        font-size: 14px;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .mobile-nav a:hover {
+        opacity: 0.6;
       }
 
       .hero {
@@ -123,14 +192,16 @@
       .hero h1 {
         position: absolute;
         z-index: 1;
-        right: 18px;
-        bottom: 18px;
+        top: 50%;
         left: 18px;
+        right: 18px;
         margin: 0;
+        transform: translateY(-50%);
         color: #ffffff;
         font-family: var(--heading);
         font-size: clamp(36px, 12vw, 68px);
         line-height: 0.9;
+        text-align: center;
       }
 
       .intro,
@@ -150,6 +221,8 @@
         display: grid;
         gap: 8px;
         padding: 18px;
+        border: 1px solid var(--line);
+        background: var(--surface);
       }
 
       h2,
@@ -179,9 +252,7 @@
       }
 
       .intro-card p {
-        padding: 14px;
-        border-radius: 14px;
-        background: var(--surface);
+        padding: 0;
       }
 
       .section-title {
@@ -302,9 +373,20 @@
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="index.html">Meteor</a>
-        <a class="back-link" href="3D%20nyomtatas.html">Asztali nézet</a>
+        <button class="menu-btn" type="button" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="mobile-overlay">
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
+
+    <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true">
+      <nav class="mobile-nav" aria-label="Fő navigáció">
+        <a href="index.html#work">Szolgáltatás</a>
+        <a href="#contact">Elérhetőségek</a>
+        <a href="3D%20nyomtatas.html">Asztali nézet</a>
+      </nav>
+    </div>
 
     <main class="mobile-page">
       <section class="hero" aria-label="3D nyomtatás">
@@ -339,7 +421,7 @@
 
         <article class="service-card service-card--warm">
           <h3>Flexi tervezés és nyomtatás</h3>
-          <p>A 3D nyomtatás sajátja, hogy mozgó, egymásba fonódó elemeket képest létrehozni. Ezzel a technikával összeszerelés nélkül alkothatunk komplex mozgatható tárgyakat. Egészen laza és egészen szoros öntartó csomópontok is létrehozhatók.<br />Készítsünk együtt olyan egyedi flexi terméket amilyen még senki másnak nincs!</p>
+          <p>A 3D nyomtatás sajátja, hogy mozgó, egymásba fonódó elemeket képest létrehozni. Ezzel a technikával összeszerelés nélkül alkothatunk komplex mozgatható tárgyakat. Egészen laza és egészen szoros öntartó csomópontok is létrehozhatók. Készítsünk együtt olyan egyedi flexi terméket amilyen még senki másnak nincs!</p>
           <details class="service-detail-separator">
             <summary>Flexi nyomtatás</summary>
             <p>Flexi modell készítés és nyomtatás akár 4 szín használatával.</p>
@@ -410,6 +492,27 @@
 
         syncHeaderState();
         window.addEventListener('scroll', syncHeaderState, { passive: true });
+      })();
+
+      (function () {
+        var menuButton = document.querySelector('.menu-btn');
+        var menu = document.getElementById('mobile-overlay');
+        if (!menuButton || !menu) return;
+
+        function toggleMenu() {
+          var isOpen = menu.classList.toggle('open');
+          menuButton.classList.toggle('open', isOpen);
+          menuButton.setAttribute('aria-expanded', String(isOpen));
+          menuButton.setAttribute('aria-label', isOpen ? 'Menü bezárása' : 'Menü megnyitása');
+          menu.setAttribute('aria-hidden', String(!isOpen));
+        }
+
+        menuButton.addEventListener('click', toggleMenu);
+        menu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            if (menu.classList.contains('open')) toggleMenu();
+          });
+        });
       })();
     </script>
   </body>
