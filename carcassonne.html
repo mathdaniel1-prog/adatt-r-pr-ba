@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carcassonne társasjáték-kiegészítő - Polyrhythm Design</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        --brussels-surface: #e6e2df;
+        --brussels-ink: #111111;
+      }
+
+      body {
+        margin: 0;
+        background: var(--brussels-surface);
+        color: var(--brussels-ink);
+      }
+
+      .brussels-page {
+        padding-top: 96px;
+      }
+
+      .brussels-intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+        gap: 48px;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 48px 46px 72px;
+        box-sizing: border-box;
+      }
+
+      .brussels-title {
+        max-width: 720px;
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 1.05;
+      }
+
+      .brussels-description {
+        max-width: 520px;
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .brussels-info {
+        grid-column: 1 / -1;
+        display: grid;
+        gap: 14px;
+        margin-top: 8px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(17, 17, 17, 0.35);
+      }
+
+      .brussels-info-row {
+        display: grid;
+        grid-template-columns: 120px minmax(0, 1fr);
+        gap: 24px;
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .brussels-info-row dt {
+        font-weight: 800;
+      }
+
+      .brussels-info-row dd {
+        margin: 0;
+      }
+
+      .brussels-gallery {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        width: 100%;
+        max-width: none;
+        margin: 0 auto;
+        padding: 0 0 96px;
+        box-sizing: border-box;
+      }
+
+      .brussels-gallery figure {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        overflow: visible;
+        background: transparent;
+      }
+
+      .brussels-gallery img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .brussels-gallery figcaption {
+        order: -1;
+        padding: 18px 46px;
+        color: #000000;
+        background: var(--brussels-surface);
+        font-family: var(--font-text);
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .brussels-back {
+        color: var(--brussels-ink) !important;
+      }
+
+      @media (max-width: 700px) {
+        .brussels-page {
+          padding-top: 48px;
+        }
+
+        .brussels-intro {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          padding: 32px 20px 48px;
+        }
+
+        .brussels-description {
+          font-size: 14px;
+        }
+
+        .brussels-info-row {
+          grid-template-columns: 1fr;
+          gap: 2px;
+        }
+
+        .brussels-gallery {
+          grid-template-columns: 1fr;
+          padding: 0 0 56px;
+        }
+
+        .brussels-gallery figcaption {
+          padding: 14px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header is-scrolled">
+      <div class="header-inner">
+        <a class="brand" href="index.html">Meteor</a>
+        <nav class="main-nav" aria-label="Oldal navigáció">
+          <a class="brussels-back" href="3D nyomtatas.html">Vissza</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="brussels-page">
+      <section class="brussels-intro" aria-labelledby="brussels-title">
+        <h1 class="brussels-title" id="brussels-title">Carcassonne társasjáték-kiegészítő</h1>
+        <p class="brussels-description">3D nyomtatott társasjáték-csempék. Más után gyártott kiegészítőkhöz képest jobb, mert a domborzata a lapoknak mindig egy bizonyos vastagságon belül marad, így a csempék lefordítva egymásra helyezhetők. Kivételt képez a folyó első és utolsó eleme, melyeket nem véletlenszerűen kell lerakni, ezek nagyobb kiemelkedésekkel rendelkeznek. Továbbá a templomok is kivételt képeznek, melyeket a meghatározott helyekre kell beilleszteni.</p>
+        <dl class="brussels-info" aria-label="Projektinformációk">
+          <div class="brussels-info-row">
+            <dt>Projekt:</dt>
+            <dd>Carcassonne társasjáték kiegészítő</dd>
+          </div>
+          <div class="brussels-info-row">
+            <dt>Mikor:</dt>
+            <dd>2024</dd>
+          </div>
+          <div class="brussels-info-row">
+            <dt>Megrendelő:</dt>
+            <dd>Saját projekt</dd>
+          </div>
+          <div class="brussels-info-row">
+            <dt>Résztvevők:</dt>
+            <dd>Máth Dániel János</dd>
+          </div>
+          <div class="brussels-info-row">
+            <dt>Fotós:</dt>
+            <dd>Máth Kristóf</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="brussels-gallery" aria-label="Carcassonne társasjáték-kiegészítő modelljei">
+        <figure><img src="carcasone/carcassonne_je1.jpg" alt="Carcassonne társasjáték-kiegészítő 1" loading="eager" /><figcaption>Carcassonne társasjáték-kiegészítő 1</figcaption></figure>
+        <figure><img src="carcasone/carcassonne_je2.jpg" alt="Carcassonne társasjáték-kiegészítő 2" loading="lazy" /><figcaption>Carcassonne társasjáték-kiegészítő 2</figcaption></figure>
+        <figure><img src="carcasone/carcassonne_je3.jpg" alt="Carcassonne társasjáték-kiegészítő 3" loading="lazy" /><figcaption>Carcassonne társasjáték-kiegészítő 3</figcaption></figure>
+        <figure><img src="carcasone/carcassonne_je4.jpg" alt="Carcassonne társasjáték-kiegészítő 4" loading="lazy" /><figcaption>Carcassonne társasjáték-kiegészítő 4</figcaption></figure>
+        <figure><img src="carcasone/szines.jpg" alt="Színes Carcassonne társasjáték-kiegészítő" loading="lazy" /><figcaption>Színes Carcassonne társasjáték-kiegészítő</figcaption></figure>
+        <figure><img src="carcasone/nyf.avif" alt="Fehér Carcassonne társasjáték-kiegészítő" loading="lazy" /><figcaption>Fehér Carcassonne társasjáték-kiegészítő</figcaption></figure>
+        <figure><img src="carcasone/ny10.jpg" alt="Carcassonne társasjáték-kiegészítő részlete" loading="lazy" /><figcaption>Carcassonne társasjáték-kiegészítő részlete</figcaption></figure>
+      </section>
+    </main>
+  </body>
+</html>

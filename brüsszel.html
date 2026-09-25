@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Borz Kováts Sándor életmű kiállítás - Polyrhythm Design</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        --brussels-surface: #e6e2df;
+        --brussels-ink: #111111;
+      }
+
+      body {
+        margin: 0;
+        background: var(--brussels-surface);
+        color: var(--brussels-ink);
+      }
+
+      .brussels-page {
+        padding-top: 96px;
+      }
+
+      .brussels-intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+        gap: 48px;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 48px 46px 72px;
+        box-sizing: border-box;
+      }
+
+      .brussels-title {
+        max-width: 720px;
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 1.05;
+      }
+
+      .brussels-description {
+        max-width: 520px;
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .brussels-info {
+        grid-column: 1 / -1;
+        display: grid;
+        gap: 14px;
+        margin-top: 8px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(17, 17, 17, 0.35);
+      }
+
+      .brussels-info-row {
+        display: grid;
+        grid-template-columns: 120px minmax(0, 1fr);
+        gap: 24px;
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .brussels-info-row dt {
+        font-weight: 800;
+      }
+
+      .brussels-info-row dd {
+        margin: 0;
+      }
+
+      .brussels-gallery {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 46px 96px;
+        box-sizing: border-box;
+      }
+
+      .brussels-gallery figure {
+        margin: 0;
+        overflow: hidden;
+        background: #d5d1ce;
+      }
+
+      .brussels-gallery img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .brussels-gallery figcaption {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+
+      .brussels-back {
+        color: var(--brussels-ink) !important;
+      }
+
+      @media (max-width: 700px) {
+        .brussels-page {
+          padding-top: 48px;
+        }
+
+        .brussels-intro {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          padding: 32px 20px 48px;
+        }
+
+        .brussels-description {
+          font-size: 14px;
+        }
+
+        .brussels-info-row {
+          grid-template-columns: 1fr;
+          gap: 2px;
+        }
+
+        .brussels-gallery {
+          grid-template-columns: 1fr;
+          padding: 0 20px 56px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header is-scrolled">
+      <div class="header-inner">
+        <a class="brand" href="index.html">Meteor</a>
+        <nav class="main-nav" aria-label="Oldal navigáció">
+          <a class="brussels-back" href="3D nyomtatas.html">Vissza</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="brussels-page">
+      <section class="brussels-intro" aria-labelledby="brussels-title">
+        <h1 class="brussels-title" id="brussels-title">Borz Kováts Sándor életmű kiállítás</h1>
+        <p class="brussels-description">A brüsszeli Design Múzeumban debütáló Borz Kováts Sándor életmű kiállítás miniatűr bútorainak a 3D modellezése. Az 1:7-es makettek gyantás (SLA) 3D nyomtatóhoz tervezett 3D modellek elkészítése. A modellek külsőre filigrán hatást keltenek, de a rejtett helyeken jóval erősebbek. A kiállítás a MOME hallgatóival együttműködve jött létre. A kiállítás megálmodója és szervezője Horváth Judit, a hallgatói kurzus vezetője pedig Kerékgyártó András volt.</p>
+        <dl class="brussels-info" aria-label="Projektinformációk">
+          <div class="brussels-info-row">
+            <dt>Projekt:</dt>
+            <dd>Borz Kováts Sándor életmű kiállítás</dd>
+          </div>
+          <div class="brussels-info-row">
+            <dt>Dátum:</dt>
+            <dd>2024 tavasza</dd>
+          </div>
+          <div class="brussels-info-row">
+            <dt>Megrendelő:</dt>
+            <dd>Iparművészeti Múzeum (Horváth Judit, Kerékgyártó András)</dd>
+          </div>
+          <div class="brussels-info-row">
+            <dt>Résztvevők:</dt>
+            <dd>Horváth Judit, Kerékgyártó András, Bechtold Fülöp Benjamin, Csiby-Gindele Rebeka, Eiler Dóra, Fehérvári Panna Nóra, Hankó Eszter, Kisgyörgy Balázs, <strong>Máth Dániel János</strong>, Schillinger Laura</dd>
+          </div>
+          <div class="brussels-info-row">
+            <dt>Fotós:</dt>
+            <dd>Eiler Dóra</dd>
+          </div>
+          <div class="brussels-info-row">
+            <dt>Saját szerep:</dt>
+            <dd>Az összes elkészült 3D modell javítása és alkalmassá tétele az UV gyantás (SLA) nyomtatásra. Illetve a csővázas fotel és részben a csővázas asztal felmérése és modellezése.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="brussels-gallery" aria-label="A Borz Kováts Sándor életmű kiállítás modelljei">
+        <figure><img src="portfolio/nyportfolio/borz/NYUL1.jpg" alt="Borz Kováts Sándor kiállítási makett 1" loading="eager" /><figcaption>Kiállítási makett 1</figcaption></figure>
+        <figure><img src="portfolio/nyportfolio/borz/NYUL2.jpg" alt="Borz Kováts Sándor kiállítási makett 2" loading="lazy" /><figcaption>Kiállítási makett 2</figcaption></figure>
+        <figure><img src="portfolio/nyportfolio/borz/NYUL3.jpg" alt="Borz Kováts Sándor kiállítási makett 3" loading="lazy" /><figcaption>Kiállítási makett 3</figcaption></figure>
+        <figure><img src="portfolio/nyportfolio/borz/NYUL4.jpg" alt="Borz Kováts Sándor kiállítási makett 4" loading="lazy" /><figcaption>Kiállítási makett 4</figcaption></figure>
+        <figure><img src="portfolio/nyportfolio/borz/NYUL5.jpg" alt="Borz Kováts Sándor kiállítási makett 5" loading="lazy" /><figcaption>Kiállítási makett 5</figcaption></figure>
+        <figure><img src="portfolio/nyportfolio/borz/NYUL6.jpg" alt="Borz Kováts Sándor kiállítási makett 6" loading="lazy" /><figcaption>Kiállítási makett 6</figcaption></figure>
+      </section>
+    </main>
+  </body>
+</html>

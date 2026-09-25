@@ -1228,18 +1228,9 @@
       <div class="container footer-grid">
         <div class="footer-inner">
           <h2 class="footer-title">Kapcsolat</h2>
-          <p>Tel: 30 521 66 66</p>
-          <p class="contact-email-row">Email: <span class="contact-email-text">info@meteor.hu</span>
-            <button class="copy-email-btn" type="button" data-copy-email="info@meteor.hu" aria-label="Email cim masolasa">
-              <svg class="copy-email-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M9 9h11v11H9z" fill="none" stroke="currentColor" stroke-width="1.8" />
-                <path d="M4 4h11v11H4z" fill="none" stroke="currentColor" stroke-width="1.8" />
-              </svg>
-            </button>
-          </p>
         </div>
 
-        <form class="quick-mail-form" data-quick-mail-form data-mail-to="info@meteor.hu">
+        <form class="quick-mail-form" data-quick-mail-form data-mail-to="">
           <label class="quick-mail-label" for="quick-first-name-printing">Név</label>
           <div class="quick-mail-name-row">
             <div class="quick-mail-name-field">
@@ -1272,6 +1263,7 @@
             event.preventDefault();
 
             var mailTo = form.getAttribute('data-mail-to');
+            if (!mailTo) return;
             var firstName = form.elements.firstName.value.trim();
             var lastName = form.elements.lastName.value.trim();
             var name = [lastName, firstName].filter(Boolean).join(' ');
