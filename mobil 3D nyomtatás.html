@@ -61,7 +61,7 @@
       }
 
       .site-header.is-scrolled {
-        background: var(--surface);
+        background: #ffffff;
         border-bottom-color: var(--line);
       }
 
@@ -338,6 +338,19 @@
         padding-bottom: 8px;
       }
 
+      .service-card-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .technology-card > h2 {
+        padding: 18px;
+        font-size: 26px;
+      }
+
       .service-card--warm {
         background: var(--surface);
       }
@@ -469,12 +482,27 @@
         </article>
       </section>
 
+      <section class="section" aria-labelledby="technology-title">
+        <article class="service-card service-card--warm technology-card">
+          <h2 id="technology-title">3D nyomtatás technológiák</h2>
+          <details>
+            <summary>Precíz FDM 3D nyomtatás</summary>
+            <p>Kiváló jól kidolgozott részletek és jól illeszkedő elemek 3D nyomtatására.</p>
+          </details>
+          <details>
+            <summary>4 színű FDM 3D nyomtatás</summary>
+            <p>3D nyomtatás akár 4 szín felhasználásával. Fröccsöntött termékre emlékeztető megjelenés.</p>
+          </details>
+        </article>
+      </section>
+
       <section class="section" aria-labelledby="services-title">
         <h2 class="section-title" id="services-title">Szolgáltatások</h2>
 
         <article class="service-card service-card--warm">
           <h3>Precíz 3D tervezés - Alkatrész 3D nyomtatás</h3>
           <p>Alkatrészek 3D modellezése és nyomtatása. Törött vagy hiányzó alkatrészek újramodellezése, meglévő STL fájlok módosítása és optimalizálása, valamint egyedi, szükséges alkatrészek tervezése és elkészítése 3D nyomtatással.</p>
+          <img class="service-card-image" src="images/NY2.webp" alt="NY2 3D nyomtatott modell" />
           <details class="service-detail-separator">
             <summary>Alkatrész újra modellezésé</summary>
             <p>Meglévő, sérült vagy törött alkatrészek pontos újra modellezésé, szükség esetén a szerkezet megerősítésével és tovább fejlesztésével.</p>
