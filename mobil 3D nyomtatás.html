@@ -252,13 +252,14 @@
       .contact-card {
         border-radius: 18px;
         background: var(--card);
+        border: 2px solid #a79b94;
       }
 
       .intro-card {
         display: grid;
         gap: 8px;
         padding: 18px;
-        border: 1px solid var(--line);
+        border: 2px solid #a79b94;
         background: var(--surface);
       }
 
@@ -285,7 +286,7 @@
       .intro-card h3 {
         font-size: 26px;
         padding-top: 12px;
-        border-top: 1px solid var(--line);
+        border-top: 2px solid #a79b94;
       }
 
       .intro-card .color-orange {
@@ -315,14 +316,32 @@
       }
 
       .section-title {
+        position: relative;
+        z-index: 0;
         padding: 22px 10px 10px;
         font-size: 28px;
+      }
+
+      .section-title::after {
+        position: absolute;
+        right: 0;
+        bottom: 3px;
+        left: 0;
+        z-index: -1;
+        height: 19px;
+        content: "";
+        background: #ffac91;
+      }
+
+      .section-title span {
+        position: relative;
+        z-index: 1;
       }
 
       .service-card {
         margin-top: 8px;
         overflow: hidden;
-        border: 1px solid var(--line);
+        border: 2px solid #a79b94;
       }
 
       .service-card + .service-card {
@@ -360,7 +379,7 @@
       }
 
       details {
-        border-top: 1px solid var(--line);
+        border-top: 2px solid #a79b94;
       }
 
       details:first-of-type {
@@ -368,7 +387,11 @@
       }
 
       .service-card > details.service-detail-separator {
-        border-top: 1px solid var(--line);
+        border-top: 2px solid #a79b94;
+      }
+
+      .technology-card > details:first-of-type {
+        border-top: 2px solid #a79b94;
       }
 
       summary {
@@ -463,7 +486,7 @@
     <main class="mobile-page">
       <section class="hero" aria-label="3D nyomtatás">
         <img class="hero-slider-image" src="images/Dia3.webp" alt="Dia3 3D nyomtatott modell" />
-        <h1><span>3D</span><br /><span>nyomtatás</span></h1>
+        <h1><span>3D</span> <span>nyomtatás</span></h1>
         <div class="hero-dots" aria-label="Képek közötti navigáció">
           <button class="hero-dot is-active" type="button" aria-label="Első kép" aria-current="true"></button>
           <button class="hero-dot" type="button" aria-label="Második kép" aria-current="false"></button>
@@ -487,7 +510,7 @@
           <h2 id="technology-title">3D nyomtatás technológiák</h2>
           <details>
             <summary>Precíz FDM 3D nyomtatás</summary>
-            <p>Kiváló jól kidolgozott részletek és jól illeszkedő elemek 3D nyomtatására.</p>
+            <p>Kiváló jól kidolgozott részletek és jól illeszkedő elemek 3D nyomtatására. Akár 0.06 mm rétegvastagság is lehetséges.</p>
           </details>
           <details>
             <summary>4 színű FDM 3D nyomtatás</summary>
@@ -497,7 +520,7 @@
       </section>
 
       <section class="section" aria-labelledby="services-title">
-        <h2 class="section-title" id="services-title">Szolgáltatások</h2>
+        <h2 class="section-title" id="services-title"><span>Szolgáltatások</span></h2>
 
         <article class="service-card service-card--warm">
           <h3>Precíz 3D tervezés - Alkatrész 3D nyomtatás</h3>
@@ -516,6 +539,7 @@
         <article class="service-card service-card--warm">
           <h3>Flexi tervezés és nyomtatás</h3>
           <p>A 3D nyomtatás sajátja, hogy mozgó, egymásba fonódó elemeket képest létrehozni. Ezzel a technikával összeszerelés nélkül alkothatunk komplex mozgatható tárgyakat. Egészen laza és egészen szoros öntartó csomópontok is létrehozhatók. Készítsünk együtt olyan egyedi flexi terméket amilyen még senki másnak nincs!</p>
+          <img class="service-card-image" src="images/frog.webp" alt="Flexi 3D nyomtatott béka" />
           <details class="service-detail-separator">
             <summary>Flexi nyomtatás</summary>
             <p>Flexi modell készítés és nyomtatás akár 4 szín használatával.</p>
@@ -614,7 +638,7 @@
 
         var slides = [
           { src: 'images/Dia3.webp', alt: 'Dia3 3D nyomtatott modell' },
-          { src: 'images/laputa3.jpg', alt: 'Laputa3 3D nyomtatott modell' },
+          { src: 'images/laputa3.webp', alt: 'Laputa3 3D nyomtatott modell' },
           { src: 'images/ny4.webp', alt: 'NY4 3D nyomtatott modell' }
         ];
         var currentIndex = 0;
@@ -638,6 +662,7 @@
         }
 
         hero.addEventListener('pointerdown', function (event) {
+          if (event.target.closest('.hero-dot')) return;
           startX = event.clientX;
           isDragging = true;
           image.classList.add('is-dragging');
@@ -659,6 +684,10 @@
         });
 
         dots.forEach(function (dot, dotIndex) {
+          dot.addEventListener('pointerdown', function (event) {
+            event.stopPropagation();
+          });
+
           dot.addEventListener('click', function () {
             showSlide(dotIndex);
           });
