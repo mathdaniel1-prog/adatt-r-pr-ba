@@ -185,6 +185,7 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
+        transition: opacity 0.2s ease;
       }
 
       .hero::after {
@@ -395,7 +396,7 @@
 
     <main class="mobile-page">
       <section class="hero" aria-label="3D nyomtatás">
-        <img src="images/Dia3.webp" alt="Dia3 3D nyomtatott modell" />
+        <img class="hero-slider-image" src="images/Dia3.webp" alt="Dia3 3D nyomtatott modell" />
         <h1>3D<br />nyomtatás</h1>
       </section>
 
@@ -515,6 +516,44 @@
           link.addEventListener('click', function () {
             if (menu.classList.contains('open')) toggleMenu();
           });
+        });
+      })();
+
+      (function () {
+        var image = document.querySelector('.hero-slider-image');
+        if (!image) return;
+
+        var slides = [
+          { src: 'images/Dia3.webp', alt: 'Dia3 3D nyomtatott modell' },
+          { src: 'images/laputa3.jpg', alt: 'Laputa3 3D nyomtatott modell' },
+          { src: 'images/ny4.webp', alt: 'NY4 3D nyomtatott modell' }
+        ];
+        var currentIndex = 0;
+        var touchStartX = 0;
+
+        function showSlide(index) {
+          currentIndex = (index + slides.length) % slides.length;
+          image.style.opacity = '0';
+          window.setTimeout(function () {
+            image.src = slides[currentIndex].src;
+            image.alt = slides[currentIndex].alt;
+            image.style.opacity = '1';
+          }, 120);
+        }
+
+        image.addEventListener('touchstart', function (event) {
+          touchStartX = event.changedTouches[0].clientX;
+        }, { passive: true });
+
+        image.addEventListener('touchend', function (event) {
+          var distance = event.changedTouches[0].clientX - touchStartX;
+          if (Math.abs(distance) < 40) return;
+          showSlide(currentIndex + (distance < 0 ? 1 : -1));
+        }, { passive: true });
+
+        image.addEventListener('keydown', function (event) {
+          if (event.key === 'ArrowRight') showSlide(currentIndex + 1);
+          if (event.key === 'ArrowLeft') showSlide(currentIndex - 1);
         });
       })();
     </script>
