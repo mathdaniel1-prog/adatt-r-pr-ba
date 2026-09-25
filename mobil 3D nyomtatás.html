@@ -178,6 +178,7 @@
         width: 100%;
         aspect-ratio: 1 / 1;
         background: #111111;
+        touch-action: pan-y;
       }
 
       .hero img {
@@ -279,6 +280,28 @@
 
       h3 {
         font-size: 20px;
+      }
+
+      .intro-card h3 {
+        font-size: 26px;
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+      }
+
+      .intro-card .color-orange {
+        color: #cdbbb0;
+      }
+
+      .intro-card .color-blue {
+        color: #a9c0aa;
+      }
+
+      .intro-card .color-red {
+        color: #bdd1dc;
+      }
+
+      .intro-card .color-green {
+        color: #ce987e;
       }
 
       p {
@@ -438,8 +461,10 @@
       <section class="intro" aria-labelledby="intro-title">
         <article class="intro-card">
           <h2 id="intro-title">Egyedi és kisszériás 3D nyomtatás</h2>
-          <p>Egyedi ötlet, praktikus alkatrész vagy egy különleges tárgy a 3D nyomtatás segítségével kézzelfoghatóvá válhat. Az ötlettől a kész tárgyig vállaljuk a tervezést, a modellezést és a precíz 3D nyomtatást, hogy az elképzelésedből valóban működő, használható tárgy szülessen.</p>
-          <p>A tárgyakat 3D nyomtatásra optimalizáljuk, hogy a legszebb felületi minőséget érhessük el, és úgy nyomtatjuk, hogy a tárgy a legjobban ellenálljon a terheléseknek.</p>
+          <p>Egy egyedi ötlet vagy egy praktikus alkatrész a nyomtatás segítségével kézzelfoghatóvá válhat. Az ötlettől a kész tárgyig vállaljuk a tervezést, a modellezést és a precíz 3D nyomtatást.</p>
+          <h3>Minőség a mennyiség helyett</h3>
+          <p>A tárgyakat 3D nyomtatásra optimalizáljuk, hogy a legszebb felületi minőséget érhessük el, és hogy a technológia keretein belül a legellenállóbb tulajdonságokkal rendelkezzenek.</p>
+          <h3>Négy színű 3D nyomtatás.</h3>
           <p>Az akár 4 színben történő nyomtatás lehetőséget ad látványos és összetettebb tárgyak megvalósítására, legyen szó prototípusról, kisebb szériáról vagy egyedi tárgyról.</p>
         </article>
       </section>
@@ -555,8 +580,9 @@
       })();
 
       (function () {
+        var hero = document.querySelector('.hero');
         var image = document.querySelector('.hero-slider-image');
-        if (!image) return;
+        if (!hero || !image) return;
 
         var slides = [
           { src: 'images/Dia3.webp', alt: 'Dia3 3D nyomtatott modell' },
@@ -583,14 +609,14 @@
           }, 120);
         }
 
-        image.addEventListener('pointerdown', function (event) {
+        hero.addEventListener('pointerdown', function (event) {
           startX = event.clientX;
           isDragging = true;
           image.classList.add('is-dragging');
-          image.setPointerCapture(event.pointerId);
+          hero.setPointerCapture(event.pointerId);
         });
 
-        image.addEventListener('pointerup', function (event) {
+        hero.addEventListener('pointerup', function (event) {
           if (!isDragging) return;
           var distance = event.clientX - startX;
           isDragging = false;
@@ -599,7 +625,7 @@
           showSlide(currentIndex + (distance < 0 ? 1 : -1));
         });
 
-        image.addEventListener('pointercancel', function () {
+        hero.addEventListener('pointercancel', function () {
           isDragging = false;
           image.classList.remove('is-dragging');
         });
