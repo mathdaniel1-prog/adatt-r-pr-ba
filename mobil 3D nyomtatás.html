@@ -324,18 +324,46 @@
 
       .section-title::after {
         position: absolute;
-        right: 0;
+        left: -8px;
+        width: calc(100% + 16px);
         bottom: 3px;
-        left: 0;
         z-index: -1;
         height: 19px;
         content: "";
         background: #ffac91;
+        transform: scaleX(0);
+        transform-origin: left center;
+      }
+
+      .section-title.is-visible::after {
+        animation: draw-highlight 0.45s linear forwards;
+      }
+
+      @keyframes draw-highlight {
+        0% {
+          transform: scaleX(0);
+        }
+
+        100% {
+          transform: scaleX(1);
+        }
       }
 
       .section-title span {
         position: relative;
         z-index: 1;
+      }
+
+      .section[aria-labelledby="services-title"] .service-card:first-of-type {
+        margin-top: 50px;
+      }
+
+      .section[aria-labelledby="works-title"] .section-title::after {
+        background: #ffac91;
+      }
+
+      .section[aria-labelledby="works-title"] .work-card:first-of-type {
+        margin-top: 50px;
       }
 
       .service-card {
@@ -355,6 +383,8 @@
 
       .service-card > h3 {
         padding-bottom: 8px;
+        font-size: 24px;
+        font-weight: 800;
       }
 
       .service-card-image {
@@ -365,9 +395,58 @@
         object-position: center;
       }
 
-      .technology-card > h2 {
-        padding: 18px;
-        font-size: 26px;
+      .service-card-images {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0;
+      }
+
+      .technology-title {
+        position: relative;
+        z-index: 0;
+        padding: 22px 10px 10px;
+        font-size: 28px;
+      }
+
+      .technology-title::after {
+        position: absolute;
+        left: -8px;
+        right: -8px;
+        bottom: 3px;
+        z-index: -1;
+        height: 19px;
+        content: "";
+        background: #ffac91;
+        transform: scaleX(0);
+        transform-origin: right center;
+      }
+
+      .technology-title.is-visible::after {
+        animation: draw-highlight 0.45s linear forwards;
+      }
+
+      .filament-title {
+        position: relative;
+        z-index: 0;
+        padding: 22px 10px 10px;
+        font-size: 28px;
+      }
+
+      .filament-title::after {
+        position: absolute;
+        right: -8px;
+        bottom: 3px;
+        left: -8px;
+        z-index: -1;
+        height: 19px;
+        content: "";
+        background: #ffac91;
+        transform: scaleX(0);
+        transform-origin: left center;
+      }
+
+      .filament-title.is-visible::after {
+        animation: draw-highlight 0.45s linear forwards;
       }
 
       .service-card--warm {
@@ -391,7 +470,7 @@
       }
 
       .technology-card > details:first-of-type {
-        border-top: 2px solid #a79b94;
+        border-top: 0;
       }
 
       summary {
@@ -427,34 +506,116 @@
       }
 
       .work-card {
+        position: relative;
         margin-top: 16px;
         overflow: hidden;
+        border-radius: 0;
+        background: transparent;
       }
 
       .work-card img {
         width: 100%;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 1 / 1;
+        border-radius: 0;
         object-fit: cover;
         object-position: center;
       }
 
       .work-card summary {
-        background: var(--card);
+        display: flex;
+        color: #ffffff;
+        background: transparent;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
+      }
+
+      .work-card summary::after {
+        margin-left: 8px;
+      }
+
+      .work-card-link {
+        display: grid;
+        flex: 0 0 32px;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        margin-left: auto;
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        color: #ffffff;
+        font-size: 21px;
+        line-height: 1;
+        text-decoration: none;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
+      }
+
+      button.work-card-link {
+        padding: 0;
+        background: transparent;
+        cursor: pointer;
       }
 
       .work-card details {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         border-top: 0;
       }
 
       .work-card details > p {
-        padding: 0 18px 18px;
+        order: 2;
+        max-height: 0;
+        overflow: hidden;
+        padding: 12px 18px;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.38);
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
+        opacity: 0;
+        transition: max-height 0.35s ease, opacity 0.35s ease;
+      }
+
+      .work-card details[open] > p {
+        max-height: 180px;
+        opacity: 1;
+      }
+
+      .work-card details[open] summary {
+        background: rgba(0, 0, 0, 0.38);
       }
 
       .contact-card {
-        display: grid;
-        gap: 8px;
-        margin: 32px 8px 0;
-        padding: 18px;
+        margin: 18px 8px 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+      }
+
+      .contact-card h2 {
+        position: relative;
+        z-index: 0;
+      }
+
+      .contact-card h2::after {
+        position: absolute;
+        left: -8px;
+        width: calc(100% + 16px);
+        bottom: 3px;
+        z-index: -1;
+        height: 19px;
+        content: "";
+        background: #ffac91;
+        transform: scaleX(0);
+        transform-origin: left center;
+      }
+
+      .contact-card h2.is-visible::after {
+        animation: draw-highlight 0.45s linear forwards;
+      }
+
+      .contact-card h2 span {
+        position: relative;
+        z-index: 1;
       }
 
       @media (min-width: 561px) {
@@ -506,8 +667,8 @@
       </section>
 
       <section class="section" aria-labelledby="technology-title">
+        <h2 class="technology-title" id="technology-title"><span>3D nyomtatás technológiák</span></h2>
         <article class="service-card service-card--warm technology-card">
-          <h2 id="technology-title">3D nyomtatás technológiák</h2>
           <details>
             <summary>Precíz FDM 3D nyomtatás</summary>
             <p>Kiváló jól kidolgozott részletek és jól illeszkedő elemek 3D nyomtatására. Akár 0.06 mm rétegvastagság is lehetséges.</p>
@@ -519,13 +680,30 @@
         </article>
       </section>
 
+      <section class="section filament-section" aria-labelledby="filament-title">
+        <h2 class="filament-title" id="filament-title"><span>Filamentek</span></h2>
+        <article class="service-card service-card--warm filament-card">
+          <details>
+            <summary>PLA</summary>
+            <p>Elsősorban PLA anyagokkal dolgozunk (PLA, PLA+, food safe PLA).</p>
+          </details>
+          <details>
+            <summary>Más anyagok</summary>
+            <p>Egy adott projekthez más filamentek is beszerezhetők. Például: PETG, TPU, ABS, ASA vagy akár PC/PA - CF/GF erősítésű anyagok is.</p>
+          </details>
+        </article>
+      </section>
+
       <section class="section" aria-labelledby="services-title">
         <h2 class="section-title" id="services-title"><span>Szolgáltatások</span></h2>
 
         <article class="service-card service-card--warm">
           <h3>Precíz 3D tervezés - Alkatrész 3D nyomtatás</h3>
           <p>Alkatrészek 3D modellezése és nyomtatása. Törött vagy hiányzó alkatrészek újramodellezése, meglévő STL fájlok módosítása és optimalizálása, valamint egyedi, szükséges alkatrészek tervezése és elkészítése 3D nyomtatással.</p>
-          <img class="service-card-image" src="images/NY2.webp" alt="NY2 3D nyomtatott modell" />
+          <div class="service-card-images">
+            <img class="service-card-image" src="images/NY2.webp" alt="NY2 3D nyomtatott modell" />
+            <img class="service-card-image" src="images/teszt3.webp" alt="3D tervezési tesztmodell" />
+          </div>
           <details class="service-detail-separator">
             <summary>Alkatrész újra modellezésé</summary>
             <p>Meglévő, sérült vagy törött alkatrészek pontos újra modellezésé, szükség esetén a szerkezet megerősítésével és tovább fejlesztésével.</p>
@@ -539,7 +717,10 @@
         <article class="service-card service-card--warm">
           <h3>Flexi tervezés és nyomtatás</h3>
           <p>A 3D nyomtatás sajátja, hogy mozgó, egymásba fonódó elemeket képest létrehozni. Ezzel a technikával összeszerelés nélkül alkothatunk komplex mozgatható tárgyakat. Egészen laza és egészen szoros öntartó csomópontok is létrehozhatók. Készítsünk együtt olyan egyedi flexi terméket amilyen még senki másnak nincs!</p>
-          <img class="service-card-image" src="images/frog.webp" alt="Flexi 3D nyomtatott béka" />
+          <div class="service-card-images">
+            <img class="service-card-image" src="images/laputa4.webp" alt="Laputa 4 3D nyomtatott modell" />
+            <img class="service-card-image" src="images/laputa5.webp" alt="Laputa 5 3D nyomtatott modell" />
+          </div>
           <details class="service-detail-separator">
             <summary>Flexi nyomtatás</summary>
             <p>Flexi modell készítés és nyomtatás akár 4 szín használatával.</p>
@@ -557,12 +738,12 @@
       </section>
 
       <section class="section" aria-labelledby="works-title">
-        <h2 class="section-title" id="works-title">Munkák</h2>
+        <h2 class="section-title" id="works-title"><span>Munkák</span></h2>
 
         <article class="work-card">
           <img src="images/Ny13.webp" alt="Carcassonne 3D nyomtatott kiegészítő" />
           <details>
-            <summary>Carcassonne társasjáték-kiegészítő</summary>
+            <summary>Carcassonne társasjáték-kiegészítő <a class="work-card-link" href="carcassonne.html" aria-label="Carcassonne oldal megnyitása">&#8599;</a></summary>
             <p>3D nyomtatott társasjáték-csempék. Más után gyártott kiegészítőkhöz képest jobb, mert a domborzata a lapoknak mindig egy bizonyos vastagságon belül marad, így a csempék lefordítva egymásra helyezhetők.</p>
           </details>
         </article>
@@ -570,7 +751,7 @@
         <article class="work-card">
           <img src="images/ny11.webp" alt="3D nyomtatott bűvöskocka" />
           <details>
-            <summary>3D nyomtatott bűvöskocka</summary>
+            <summary>3D nyomtatott bűvöskocka <button class="work-card-link" type="button" aria-label="Bűvöskocka oldal megnyitása">&#8599;</button></summary>
             <p>Teljes mértékben 3D nyomtatásra van tervezve. Az összeszereléséhez nincs szükség más anyagokra és elemekre csak PLA filamentre. Olyan 3D nyomtatott csomópontok látják el a forgatás és az összetartás feladatát, amik évek múltán is erősek maradnak.</p>
           </details>
         </article>
@@ -578,7 +759,7 @@
         <article class="work-card">
           <img src="images/laputa2.webp" alt="Laputa robot 3D nyomtatott modell" />
           <details>
-            <summary>Laputa robot</summary>
+            <summary>Laputa robot <button class="work-card-link" type="button" aria-label="Laputa robot oldal megnyitása">&#8599;</button></summary>
             <p>Egy rajongói robot modell a Laputa - Az égi palota című animációs filmből. A robot egyedi speciális öntartó csomópontokkal rendelkezik. A flexi tárgyak részei általában láncszerűen lazán csatlakoznak egymáshoz, ellenben ez a tárgy nagyon jól tartja magát, így a figurával akrobatikus mozdulatok is beállíthatók.</p>
           </details>
         </article>
@@ -586,14 +767,14 @@
         <article class="work-card">
           <img src="images/NY14.webp" alt="3D nyomtatott flexi kígyó" />
           <details>
-            <summary>3D nyomtatott flexi kígyó</summary>
+            <summary>3D nyomtatott flexi kígyó <button class="work-card-link" type="button" aria-label="Flexi kígyó oldal megnyitása">&#8599;</button></summary>
             <p>Ez egy rendkívül sok lamellából álló konstrukció. A flexi csatlakozói nagyon aprók, a méretük közelíti a 0,4-es extruder korlátait. A kígyó 10 cm hosszú szegmensekből tevődik össze, így a teljes hossza személyre szabható.</p>
           </details>
         </article>
       </section>
 
       <section class="contact-card" id="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">Kapcsolat</h2>
+        <h2 class="section-title" id="contact-title"><span>Kapcsolat</span></h2>
       </section>
     </main>
 
@@ -691,6 +872,30 @@
           dot.addEventListener('click', function () {
             showSlide(dotIndex);
           });
+        });
+      })();
+
+      (function () {
+        var titles = document.querySelectorAll('.section-title, .contact-card h2, .technology-title, .filament-title');
+        if (!titles.length) return;
+
+        if (!('IntersectionObserver' in window)) {
+          titles.forEach(function (title) {
+            title.classList.add('is-visible');
+          });
+          return;
+        }
+
+        var titleObserver = new IntersectionObserver(function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.35 });
+
+        titles.forEach(function (title) {
+          titleObserver.observe(title);
         });
       })();
     </script>
